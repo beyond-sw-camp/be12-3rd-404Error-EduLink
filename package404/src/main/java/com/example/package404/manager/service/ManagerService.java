@@ -111,6 +111,7 @@ public class ManagerService {
                 .orElseThrow(() -> new ManagerException(ManagerResponseStatus.MANAGER_NOT_FOUND));
         test.setTitle(dto.getTitle());
         test.setContent(dto.getContent());
+        test.setCourse(dto.getCourse());
         testRepository.save(test);
         return new BaseResponse<>(true, "테스트 수정 성공",
                 CommonResponseStatus.SUCCESS.getCode(), TestResponseDto.of(test));
