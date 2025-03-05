@@ -33,7 +33,7 @@ public class StudentService {
     }
 
     public StudentResponseDto read(Long idx) {
-        if (idx == null || idx < 0 || idx >= studentRepository.count()) {
+        if (idx == null || idx < 0) {
             throw new StudentException(StudentResponseStatus.INVALID_STUDENT_ID);
         }
 
@@ -57,7 +57,7 @@ public class StudentService {
     }
 
     public StudentDetailResponseDto update(User user, String action) {
-        if (user.getIdx() == null || user.getIdx() < 0 || user.getIdx() > studentRepository.count()) {
+        if (user.getIdx() == null || user.getIdx() < 0) {
             throw new StudentException(StudentResponseStatus.INVALID_STUDENT_ID);
         }
         User findUser = userRepository.findById(user.getIdx()).orElseThrow();

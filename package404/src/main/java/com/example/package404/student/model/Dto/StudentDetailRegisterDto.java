@@ -2,18 +2,26 @@ package com.example.package404.student.model.Dto;
 
 import com.example.package404.student.model.StudentDetail;
 import com.example.package404.user.model.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @Builder
 public class StudentDetailRegisterDto {
+    @Schema(description = "학생 주소", example = "student_address")
     private String address;
+    @Schema(description = "학생 시험 상태", example = "false")
     private Boolean testStatus;
+    @Schema(description = "학생 지각 일수", example = "0")
     private Integer perception;
+    @Schema(description = "학생 출석 일수", example = "0")
     private Integer attendance;
+    @Schema(description = "학생 조퇴 일수", example = "0")
     private Integer leaveEarly;
+    @Schema(description = "학생 외출 일수", example = "0")
     private Integer outing;
+    @Schema(description = "학생 잔여 휴가 일수", example = "12")
     private Integer vacationLeft;
 
     public StudentDetail toEntity(User user) {
