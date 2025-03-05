@@ -39,7 +39,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())  // CSRF 비활성화
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/user/signup2/{role}").permitAll()  // 로그인, 회원가입 허용
+                        .requestMatchers("/login", "/user/signup/{role}").permitAll()  // 로그인, 회원가입 허용
                         .requestMatchers("/v3/**", "/v3/api-docs/**", "/swagger-ui/**",
                                 "/swagger-ui.html", "/swagger-resources/**", "/favicon.ico").permitAll()
                         .requestMatchers("/board/**").hasAnyRole("STUDENT", "INSTRUCTOR", "MANAGER") // 게시판은 로그인한 회원이라면 모두 허용
