@@ -40,36 +40,37 @@ public class InstructorController {
 
     //
 
-    //강사가 자기 정보 불러오기
-    @GetMapping("/edit/{instructorIdx}")
-    public BaseResponse<InstructorResponseDto> getInstructor(@PathVariable Long instructorIdx) {
 
-        InstructorResponseDto response = instructorService.getInstructor(instructorIdx);
+    // Todo n+1 처리해야함
+    // 강사가 자기 정보 불러오기
+    // o
+    @GetMapping("/edit")
+    public BaseResponse<InstructorResponseDto> getInstructor(/*@AuthenticationPrincipal User user*/) {
+        User user = User.builder().idx(3L).build();
+
+        InstructorResponseDto response = instructorService.getInstructor(user.getIdx());
 
 
         return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
     }
     //Todo baseResponse
+    // 아직 안함
     // 강사 정보 수정
-    @PostMapping("/edit/{instructorIdx}")
-    public BaseResponse SetInfo(@PathVariable Long instructorIdx, @RequestBody InstructorRequestDto dto, @AuthenticationPrincipal User user) {
-        instructorService.setInfo(instructorIdx, dto, user);
+    @PostMapping("/edit")
+    public BaseResponse SetInfo(@RequestBody UpdateUserInstructorDto dto, @AuthenticationPrincipal User user) {
+        instructorService.setInfo( dto, user);
 
         return baseResponseService.getSuccessResponse(InstructorResponseStatus.SUCCESS);
     }
-    //Todo baseResponse
-
-    @PostMapping("/edit2/{instructorIdx}")
-    public void SetInfo2(@PathVariable Long instructorIdx, @RequestBody UpdateUserInstructorDto dto, @AuthenticationPrincipal User user) {
-
-        instructorService.setInfo2(instructorIdx, dto);
-    }
 
 
+    // Todo n+1 해야함
     // 강사 정보 조회
+    //
     @GetMapping("/instructors")
     public BaseResponse<List<InstructorResponseDto>> getAllInstructorInfo() {
-        List<InstructorResponseDto> responseDtoList = instructorService.instructor_list();
+
+        List<InstructorResponseDto> responseDtoList = instructorService.instructor_list2();
 
 
         return baseResponseService.getSuccessResponse(responseDtoList, InstructorResponseStatus.SUCCESS);

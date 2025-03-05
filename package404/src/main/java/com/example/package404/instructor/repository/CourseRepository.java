@@ -26,7 +26,7 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 
 
     // n+1 문제 해결 안됐음
-    @Query("SELECT c FROM Course c JOIN FETCH c.instructor i WHERE i.userIdx = :userIdx")
+    @Query("SELECT c FROM Course c JOIN FETCH c.instructor i WHERE i.user.idx = :userIdx")
     List<Course> findByInstructorUserIdx(@Param("userIdx") Long userIdx);
 
     @Query("SELECT c FROM Course c JOIN FETCH c.curriculumList WHERE c.generation = :generation")

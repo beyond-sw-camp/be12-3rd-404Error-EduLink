@@ -3,6 +3,7 @@ package com.example.package404.user.controller;
 import com.example.package404.global.response.BaseResponse;
 import com.example.package404.global.response.BaseResponseServiceImpl;
 import com.example.package404.global.response.responseStatus.UserResponseStatus;
+import com.example.package404.user.model.Dto.UserInsSignUpDto;
 import com.example.package404.user.service.UserService;
 import com.example.package404.user.model.Dto.UserRequestDto;
 import com.example.package404.user.model.Dto.UserResponseDto;
@@ -25,11 +26,6 @@ public class UserController {
         return baseResponseService.getSuccessResponse(response, UserResponseStatus.SUCCESS);
     }
 
-    @GetMapping("/dd")
-    public String hello() {
-        return "유진님 바보";
-    }
-
 
     @PostMapping("/signup2/{role}")
     public BaseResponse<UserResponseDto.SignupResponse> createUser2(@PathVariable String role, @RequestBody UserRequestDto.SignupRequest dto) {
@@ -37,5 +33,16 @@ public class UserController {
 
         return baseResponseService.getSuccessResponse(response, UserResponseStatus.SUCCESS);
     }
+
+
+
+
+    @PostMapping("/CustomInstructorSignup/{role}")
+    public void createUser2(@PathVariable String role, @RequestBody UserInsSignUpDto dto) {
+        userService.CustomInstructorSignup(dto, role);
+
+     }
+
+
 
 }

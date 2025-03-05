@@ -16,10 +16,10 @@ import java.util.List;
 @Entity
 public class Instructor {
     @Id
-    private Long userIdx; // user의 PK를 Instructor의 PK로 사용
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idx;
     private String record;
     private String portfolio;
-
     @OneToOne
     @JoinColumn(name = "user_idx")
     private User user;
