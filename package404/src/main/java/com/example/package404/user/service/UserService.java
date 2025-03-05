@@ -32,26 +32,7 @@ public class UserService implements UserDetailsService {
 
     @Transactional
     public UserResponseDto.SignupResponse signup(UserRequestDto.SignupRequest dto, String role) {
-        // 이메일 형식 검증
-        if (!pattern.matcher(dto.getEmail()).matches()) {
-            throw new UserException(UserResponseStatus.INVALID_EMAIL_FORMAT);
-        }
-
-        // 이메일 중복 체크
-        if (userRepository.findByEmail(dto.getEmail()).isPresent()) {
-            throw new UserException(UserResponseStatus.EMAIL_ALREADY_IN_USE);
-        }
-
-        String encodedPassword = passwordEncoder.encode(dto.getPassword());
-        User user = userRepository.save(dto.toEntity(encodedPassword, role));
-
-        return UserResponseDto.SignupResponse.from(user);
-    }
-
-    @Transactional
-    public UserResponseDto.SignupResponse signup2(UserRequestDto.SignupRequest dto, String role) {
-
-        if (!pattern.matcher(dto.getEmail()).matches()) {
+         if (!pattern.matcher(dto.getEmail()).matches()) {
             throw new UserException(UserResponseStatus.INVALID_EMAIL_FORMAT);
         }
 
