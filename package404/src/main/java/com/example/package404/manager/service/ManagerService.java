@@ -13,6 +13,7 @@ import com.example.package404.manager.model.dto.TestRequestDto;
 import com.example.package404.manager.model.dto.TestResponseDto;
 import com.example.package404.manager.repository.ManagerRepository;
 import com.example.package404.manager.repository.TestRepository;
+import com.example.package404.student.model.Dto.StudentDetailPageResponse;
 import com.example.package404.student.model.Dto.StudentDetailResponseDto;
 import com.example.package404.student.model.StudentDetail;
 import com.example.package404.student.repository.StudentRepository;
@@ -20,6 +21,8 @@ import com.example.package404.user.model.Dto.UserResponseDto;
 import com.example.package404.user.model.User;
 import com.example.package404.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,7 +39,7 @@ public class ManagerService {
 
     @Transactional(readOnly = true)
     public BaseResponse<List<ManagerResponseDto>> getManagerList() {
-        List<User> managerList = managerRepository.findAll();
+        List<User> managerList = managerRepository.findByRole("MANAGER");
         if (managerList.isEmpty()) {
             throw new ManagerException(ManagerResponseStatus.MANAGER_NOT_FOUND);
         }
@@ -86,16 +89,14 @@ public class ManagerService {
     }
 
     @Transactional(readOnly = true)
-    public BaseResponse<List<StudentDetailResponseDto>> getStudentList() {
-        List<StudentDetail> studentList = studentRepository.findAll();
+    public BaseResponse<StudentDetailPageResponse> getStudentList(int page, int size) {
+        Page<StudentDetail> studentList = studentRepository.findAllStudents(PageRequest.of(page, size));
         if (studentList.isEmpty()) {
             throw new ManagerException(ManagerResponseStatus.MANAGER_NOT_FOUND);
         }
-        List<StudentDetailResponseDto> response = studentList.stream()
-                .map(StudentDetailResponseDto::from)
-                .toList();
+
         return new BaseResponse<>(true, CommonResponseStatus.SUCCESS.getMessage(),
-                CommonResponseStatus.SUCCESS.getCode(), response);
+                CommonResponseStatus.SUCCESS.getCode(), StudentDetailPageResponse.from(studentList));
     }
 
     @Transactional
