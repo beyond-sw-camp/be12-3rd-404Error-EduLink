@@ -1,8 +1,6 @@
 package com.example.package404.comment.controller;
 
-import com.example.package404.comment.model.dto.CommentDeleteResponse;
-import com.example.package404.comment.model.dto.CommentRequestDto;
-import com.example.package404.comment.model.dto.CommentResponseDto;
+import com.example.package404.comment.model.dto.*;
 import com.example.package404.comment.service.CommentService;
 import com.example.package404.global.response.BaseResponse;
 import com.example.package404.global.response.BaseResponseService;
@@ -41,8 +39,21 @@ public class CommentController {
     }
 
     @Operation(
-            summary = "댓글 삭제하기",
+            summary = "댓글 수정하기",
             description = "commentIdx를 전달받아 전달 받은 boardIdx의 게시글에 댓글을 삭제합니다."
+    )
+    @PatchMapping("/update/{commentIdx}")
+    public BaseResponse<Object> update(@AuthenticationPrincipal User loginUser, @PathVariable Long commentIdx, @RequestBody CommentUpdateRequest dto) {
+        if (loginUser == null) {
+            return baseResponseService.getFailureResponse(UserResponseStatus.USER_NOT_FOUND);
+        }
+        CommentUpdateResponse response = commentService.update(loginUser, commentIdx, dto);
+        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.UPDATED);
+    }
+
+    @Operation(
+            summary = "댓글 삭제하기",
+            description = "commentIdx를 전달받아 전달 받은 boardIdx의 게시글에 댓글을 수정합니다."
     )
     @DeleteMapping("/delete/{commentIdx}")
     public BaseResponse<Object> delete(@AuthenticationPrincipal User loginUser, @PathVariable Long commentIdx) {

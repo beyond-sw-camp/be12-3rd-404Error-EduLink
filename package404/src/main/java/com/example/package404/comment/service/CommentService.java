@@ -4,9 +4,7 @@ import com.example.package404.board.model.Board;
 import com.example.package404.board.model.dto.BoardDeleteResponse;
 import com.example.package404.board.repository.BoardRepository;
 import com.example.package404.comment.model.Comment;
-import com.example.package404.comment.model.dto.CommentDeleteResponse;
-import com.example.package404.comment.model.dto.CommentRequestDto;
-import com.example.package404.comment.model.dto.CommentResponseDto;
+import com.example.package404.comment.model.dto.*;
 import com.example.package404.comment.repository.CommentRepository;
 import com.example.package404.global.exception.BoardException;
 import com.example.package404.global.exception.CommentException;
@@ -49,4 +47,19 @@ public class CommentService {
         return CommentDeleteResponse.from(comment.getIdx());
     }
 
+    public CommentUpdateResponse update(User loginUser, Long commentIdx, CommentUpdateRequest dto) {
+        Comment comment = commentRepository.findById(commentIdx)
+                .orElseThrow(() -> new CommentException(CommentResponseStatus.INVALID_COMMENT_ID));
+
+
+        if (!comment.getUser().getIdx().equals(loginUser.getIdx())) {
+            throw new CommentException(CommentResponseStatus.COMMENT_ACCESS_DENIED);
+        }
+
+        comment.updateContent(dto.getContent());
+
+        Comment updatedComment = commentRepository.save(comment);
+
+        return CommentUpdateResponse.from(updatedComment);
+    }
 }
