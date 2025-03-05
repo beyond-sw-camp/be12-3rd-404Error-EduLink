@@ -34,6 +34,7 @@ public class Course {
     private List<Test> testList = new ArrayList<>();
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="user_idx")
     private Instructor instructor;
 
