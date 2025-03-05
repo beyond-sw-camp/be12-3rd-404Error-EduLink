@@ -8,9 +8,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Schema(description = "게시글 정보를 담는 객체")
@@ -37,13 +39,18 @@ public class Board {
     private int boardType;
 
     @Schema(description = "댓글 리스트")
-    @OneToMany(mappedBy = "board")
-    private List<Comment> comments;
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @BatchSize(size = 10)  // 한 번에 최대 10개의 댓글 조회
+    private List<Comment> comments = new ArrayList<>();
 
     @Schema(description = "게시글 작성자의 정보")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_idx")
     private User user;
+
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @BatchSize(size = 10)  // 한 번에 최대 10개의 이미지 조회
+    private List<BoardImage> imageList = new ArrayList<>();
 
 }
 
