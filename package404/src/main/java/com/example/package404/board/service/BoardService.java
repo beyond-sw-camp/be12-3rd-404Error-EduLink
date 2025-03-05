@@ -1,10 +1,7 @@
 package com.example.package404.board.service;
 
 import com.example.package404.board.model.Board;
-import com.example.package404.board.model.dto.BoardPageResponse;
-import com.example.package404.board.model.dto.BoardReadResponseDto;
-import com.example.package404.board.model.dto.BoardRequestDto;
-import com.example.package404.board.model.dto.BoardResponseDto;
+import com.example.package404.board.model.dto.*;
 import com.example.package404.board.repository.BoardImageRepository;
 import com.example.package404.board.repository.BoardRepository;
 import com.example.package404.board.repository.PreSignedCloudImageRepository;
@@ -85,5 +82,15 @@ public class BoardService {
         }
 
         return BoardPageResponse.from(boardList);
+    }
+
+    public BoardDeleteResponse deleteBoard(User loginUser, Long boardIdx) {
+        Board board = boardRepository.findById(boardIdx)
+                .orElseThrow(() -> new BoardException(BoardResponseStatus.INVALID_BOARD_ID));
+        if (!board.getUser().getIdx().equals(loginUser.getIdx())) {
+            throw new BoardException(BoardResponseStatus.BOARD_ACCESS_DENIED);  // 권한 없음 예외 발생
+        }
+        boardRepository.delete(board);
+        return BoardDeleteResponse.from(board.getIdx());
     }
 }

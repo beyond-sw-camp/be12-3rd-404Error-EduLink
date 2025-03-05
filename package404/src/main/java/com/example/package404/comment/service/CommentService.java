@@ -1,13 +1,17 @@
 package com.example.package404.comment.service;
 
 import com.example.package404.board.model.Board;
+import com.example.package404.board.model.dto.BoardDeleteResponse;
 import com.example.package404.board.repository.BoardRepository;
 import com.example.package404.comment.model.Comment;
+import com.example.package404.comment.model.dto.CommentDeleteResponse;
 import com.example.package404.comment.model.dto.CommentRequestDto;
 import com.example.package404.comment.model.dto.CommentResponseDto;
 import com.example.package404.comment.repository.CommentRepository;
+import com.example.package404.global.exception.BoardException;
 import com.example.package404.global.exception.CommentException;
 import com.example.package404.global.response.BaseResponseService;
+import com.example.package404.global.response.responseStatus.BoardResponseStatus;
 import com.example.package404.global.response.responseStatus.CommentResponseStatus;
 import com.example.package404.user.model.User;
 import lombok.RequiredArgsConstructor;
@@ -33,4 +37,16 @@ public class CommentService {
         }
 
     }
+
+    public CommentDeleteResponse delete(User loginUser, Long commentIdx) {
+        Comment comment = commentRepository.findById(commentIdx)
+                .orElseThrow(() -> new CommentException(CommentResponseStatus.INVALID_COMMENT_ID));
+        if(!comment.getUser().getIdx().equals(loginUser.getIdx())){
+            throw new CommentException(CommentResponseStatus.COMMENT_ACCESS_DENIED);
+        }
+        commentRepository.delete(comment);
+
+        return CommentDeleteResponse.from(comment.getIdx());
+    }
+
 }
