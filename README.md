@@ -1,11 +1,11 @@
 # be12-3rd-404Error-EduLink
 
+
+
 ## 📌 프로젝트 주제 
 <div align="center">
     <img src="./images/readme_img/service.png" /> <br>
 </div>
-
-
 
 ### EduLink: 혁신적인 학습 관리 플랫폼
 빠르게 증가하는 국비지원 부트캠프 수요에 맞춰 학습 환경의 질적 향상을 목표로 개발된 EduLink는 기존 LMS(HRD-Net)의 한계를 보완합니다.   
@@ -14,7 +14,9 @@
 
 수강생들은 EduLink를 통해 학습 전반을 체계적으로 관리하고 편리하게 활용할 수 있습니다.
 
-[상세보기](https://github.com/beyond-sw-camp/be12-1st-404Error-EduLink/blob/main/README.md)
+[상세보기](https://github.com/beyond-sw-camp/be12-3rd-404Error-EduLink/wiki/1.-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9A%94)
+
+
 
 ## 💡팀
 
@@ -23,6 +25,7 @@
     <h3>한화시스템 BEYOND SW캠프 </h3>
     <p>12기 2차 프로젝트 <strong>팀 404Error</strong></p>
 </div>
+
 
 
 ## 🤚 404Error 팀원
@@ -41,8 +44,12 @@
 </div>
 
 
+
 ## ⭐ 접속 주소
-[www.edulink.kro.kr](http://www.edulink.kro.kr)
+<h3>
+  <a href="http://www.edulink.kro.kr">www.edulink.kro.kr</a>
+</h3>
+
 
 
 ## 🔧 기술 스택
@@ -69,7 +76,9 @@ DB<br>
 ![Figma](https://img.shields.io/badge/Figma-%232C2E3A.svg?style=for-the-badge&logo=figma&logoColor=white)
 ![Discord](https://img.shields.io/badge/Discord-00599C?style=for-the-badge&logo=discord&logoColor=white) 
 
-## 🔧 시스템 아키텍처
+
+
+## 🖥️ 시스템 아키텍처
  <img src="./images/readme_img/sys_arc.png" alt="시스템 아키텍처" style="width:100%;"/>
 <details>
 <summary> Amazon RDS </summary>
@@ -89,19 +98,33 @@ DB<br>
 - 2대의 EC2를 이용하여 한대는 프론트서버, 한대는 백엔드 서버를 설정하였습니다. 
 </details>
 
-<details>
 
-## ⭐ 소프트웨어 아키텍처
-<!-- [www.edulink.kro.kr](http://www.edulink.kro.kr) -->
 
-## ⭐ 코딩 커벤션션
-<!-- [www.edulink.kro.kr](http://www.edulink.kro.kr) -->
+## 👩‍💻 소프트웨어 아키텍처
+ <img src="./images/readme_img/sw_arc.png" alt="시스템 아키텍처" style="width:100%;"/>
+<a href="https://github.com/beyond-sw-camp/be12-3rd-404Error-EduLink/wiki/2.-SW-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90">소프트웨어 아키텍처</a>
 
-## ⭐ API 명세서
-<!-- [www.edulink.kro.kr](http://www.edulink.kro.kr) -->
 
-## ⭐ 기능 테스트
-<!-- [www.edulink.kro.kr](http://www.edulink.kro.kr) -->
 
-## ⭐ 성능 개선
-<!-- [www.edulink.kro.kr](http://www.edulink.kro.kr) -->
+## ⌨️ 코딩 커벤션
+<a href="https://github.com/beyond-sw-camp/be12-3rd-404Error-EduLink/wiki/3.-%EC%BD%94%EB%94%A9-%EC%BB%A8%EB%B2%A4%EC%85%98">코딩 커벤션</a>
+
+
+
+## 📃 API 명세서
+<a href="">API 명세서</a>
+
+
+
+<!-- ## ⭐ 시퀀스 다이어그램
+<a href="https://github.com/beyond-sw-camp/be12-3rd-404Error-EduLink/wiki/SW-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90">API 명세서</a> -->
+
+
+
+## 🔎 기능 테스트
+<a href="https://github.com/beyond-sw-camp/be12-3rd-404Error-EduLink/wiki/4.-%EA%B8%B0%EB%8A%A5-%ED%85%8C%EC%8A%A4%ED%8A%B8">기능 테스트</a>
+
+
+
+## 🚀 성능 개선
+<a href="https://github.com/beyond-sw-camp/be12-3rd-404Error-EduLink/wiki/5.-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0">성능 개선</a>
