@@ -4,7 +4,11 @@ import com.example.package404.instructor.model.Course;
 import com.example.package404.manager.model.Test;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Builder
 public class TestRequestDto {
