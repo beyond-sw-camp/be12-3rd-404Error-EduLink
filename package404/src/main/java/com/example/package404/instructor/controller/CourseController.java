@@ -10,11 +10,13 @@ import com.example.package404.instructor.model.dto.res.CourseResponseDto;
 import com.example.package404.instructor.service.CourseService;
 import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@Tag(name = "코스 기능", description = "코스 관리 API")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/course")

@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.Path;
 import java.util.List;
-@Tag(name = "Instructor", description = "강사 관련 API")
 
+@Tag(name = "강사 기능", description = "강사 관련 API")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/instructor")
