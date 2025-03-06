@@ -51,6 +51,15 @@ public class StudentService {
         return StudentResponseDto.from(student);
     }
 
+    public StudentResponseDto readAllInfo(Long userIdx) {
+        User user = userRepository.findById(userIdx).orElseThrow();
+        StudentDetail studentDetail = user.getStudentDetail();
+        if (studentDetail == null) {
+            throw new StudentException(StudentResponseStatus.STUDENT_NOT_FOUND);
+        }
+        return StudentResponseDto.from(studentDetail);
+    }
+
     public StudentDetailPageResponse list(int page, int size) {
         if (page < 0 || page+1 > studentRepository.count() || size < 0 || size > studentRepository.count()) {
             throw new StudentException(StudentResponseStatus.INVALID_PAGE);
