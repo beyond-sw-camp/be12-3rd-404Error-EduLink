@@ -8,6 +8,7 @@ import com.example.package404.global.response.responseStatus.CommonResponseStatu
 import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/board")
+@Tag(name = "게시판 기능", description = "게시판 관리 API")
 public class BoardController {
     private final BoardService boardService;
     private final BaseResponseServiceImpl baseResponseService;

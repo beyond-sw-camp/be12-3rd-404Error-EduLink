@@ -64,8 +64,8 @@ public class SwaggerConfig {
 
 
                     // 직접 만든 필터의 문서를 swagger에 등록
-                    operation.addTagsItem("사용자 로그인 기능");
-                    operation.summary("로그인 관리 API");
+                    operation.addTagsItem("사용자 기능");
+                    operation.summary("로그인");
                     operation.description("사용자가 로그인 하는 기능입니다.");
 
                     PathItem pathItem = new PathItem().post(operation);
