@@ -1,6 +1,7 @@
 package com.example.package404.board.service;
 
 import com.example.package404.board.model.Board;
+import com.example.package404.board.model.BoardImage;
 import com.example.package404.board.model.dto.*;
 import com.example.package404.board.repository.BoardImageRepository;
 import com.example.package404.board.repository.BoardRepository;
@@ -19,6 +20,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -93,30 +95,59 @@ public class BoardService {
     }
 
     @Transactional
-    public BoardDeleteResponse deleteBoard(User loginUser, Long boardIdx) {
+    public BoardDeleteResponseDto deleteBoard(User loginUser, Long boardIdx) {
         Board board = boardRepository.findById(boardIdx)
                 .orElseThrow(() -> new BoardException(BoardResponseStatus.INVALID_BOARD_ID));
 
-        // 본인 게시글인지 확인
-        if (!board.getUser().equals(loginUser)) {
+        if (!Objects.equals(board.getUser().getIdx(), loginUser.getIdx())) {
             throw new BoardException(BoardResponseStatus.BOARD_ACCESS_DENIED);
         }
 
-        // 1. 게시글에 포함된 모든 이미지 가져오기
         List<String> fileUrls = boardImageRepository.findUrlsByBoard(board);
 
-        // 2. S3에서 파일 삭제
         if (!fileUrls.isEmpty()) {
             s3Service.deleteFiles(fileUrls);
         }
 
-        // 3. DB에서 파일 정보 삭제
         boardImageRepository.deleteByBoard(board);
 
-        // 4. 게시글 삭제
         boardRepository.delete(board);
 
-        return BoardDeleteResponse.from(board.getIdx());
+        return BoardDeleteResponseDto.from(board.getIdx());
     }
 
+
+    @Transactional
+    public BoardUpdateResponseDto updateBoard(User loginUser, Long boardIdx, BoardUpdateRequestDto requestDto) {
+        Board board = boardRepository.findById(boardIdx)
+                .orElseThrow(() -> new BoardException(BoardResponseStatus.INVALID_BOARD_ID));
+
+        if (!Objects.equals(board.getUser().getIdx(), loginUser.getIdx())) {
+            throw new BoardException(BoardResponseStatus.BOARD_ACCESS_DENIED);
+        }
+
+        if (requestDto.getDeleteFiles() != null && !requestDto.getDeleteFiles().isEmpty()) {
+            s3Service.deleteFiles(requestDto.getDeleteFiles()); // S3 파일 삭제
+            boardImageRepository.deleteByBoardAndUrls(board, requestDto.getDeleteFiles()); // DB에서도 삭제
+        }
+
+        List<String> newFileUrls = new ArrayList<>();
+        if (requestDto.getAddFiles() != null && !requestDto.getAddFiles().isEmpty()) {
+            List<BoardImage> boardImages = new ArrayList<>();
+            for (String fileName : requestDto.getAddFiles()) {
+                String preSignedUrl = preSignedUrlService.generatePreSignedUrl(fileName, "image/png");
+                newFileUrls.add(preSignedUrl);
+
+                boardImages.add(BoardImage.builder()
+                        .url(fileName)
+                        .board(board)
+                        .build());
+            }
+            boardImageRepository.saveAll(boardImages);
+        }
+
+        board.update(requestDto.getTitle(), requestDto.getContent());
+
+        return BoardUpdateResponseDto.from(board, newFileUrls);
+    }
 }

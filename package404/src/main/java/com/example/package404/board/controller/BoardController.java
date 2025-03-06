@@ -7,7 +7,6 @@ import com.example.package404.global.response.BaseResponseServiceImpl;
 import com.example.package404.global.response.responseStatus.CommonResponseStatus;
 import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -56,7 +55,14 @@ public class BoardController {
     )
     @DeleteMapping("/delete/{boardIdx}")
     public BaseResponse<Object> delete(@AuthenticationPrincipal User loginUser, @PathVariable Long boardIdx) {
-        BoardDeleteResponse response = boardService.deleteBoard(loginUser, boardIdx);
+        BoardDeleteResponseDto response = boardService.deleteBoard(loginUser, boardIdx);
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.DELETED);
+    }
+
+    @PatchMapping("/update/{boardIdx}")
+    public BaseResponse<Object> update(@AuthenticationPrincipal User loginUser, @PathVariable Long boardIdx, @RequestBody BoardUpdateRequestDto boardUpdateRequestDto) {
+        System.out.println("삭제 파일 잘 나옴 ? :" + boardUpdateRequestDto.getDeleteFiles());
+        BoardUpdateResponseDto response = boardService.updateBoard(loginUser, boardIdx, boardUpdateRequestDto);
+        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.UPDATED);
     }
 }

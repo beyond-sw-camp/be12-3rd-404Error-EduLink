@@ -2,9 +2,11 @@ package com.example.package404.board.repository;
 
 import com.example.package404.board.model.Board;
 import com.example.package404.board.model.BoardImage;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,5 +25,10 @@ public interface BoardImageRepository extends JpaRepository<BoardImage, Long> {
     List<String> findUrlsByBoard(@Param("board") Board board);
 
     void deleteByBoard(Board board);
+
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM BoardImage bi WHERE bi.board = :board AND bi.url IN :urls")
+    void deleteByBoardAndUrls(@Param("board") Board board, @Param("urls") List<String> urls);
 
 }
