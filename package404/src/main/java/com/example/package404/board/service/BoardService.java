@@ -43,8 +43,8 @@ public class BoardService {
                 String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd/"));
                 String fileName = date + UUID.randomUUID() + "_" + file;
 
-            //    String preSignedUrl = preSignedCloudImageRepository.generatePreSignedUrl(fileName, "image/png");
-            //    preSignedUrls.add(preSignedUrl);
+                String preSignedUrl = preSignedCloudImageRepository.generatePreSignedUrl(fileName, "image/png");
+                preSignedUrls.add(preSignedUrl);
                 uploadFilePaths.add(fileName);
             }
 

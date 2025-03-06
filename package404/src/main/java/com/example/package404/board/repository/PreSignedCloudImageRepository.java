@@ -12,7 +12,7 @@ import java.time.Duration;
 @Repository
 @RequiredArgsConstructor
 public class PreSignedCloudImageRepository {
-    /*
+
     private final S3Presigner s3Presigner;
 
     @Value("${spring.cloud.aws.s3.bucket}")
@@ -33,5 +33,5 @@ public class PreSignedCloudImageRepository {
         return presignedRequest.url().toString();
     }
 
-     */
+
 }
