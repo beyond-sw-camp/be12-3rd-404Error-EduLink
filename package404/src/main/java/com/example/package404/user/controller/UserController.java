@@ -26,7 +26,7 @@ public class UserController {
     private final BaseResponseServiceImpl baseResponseService;
 
 
-    @Operation(summary = "사용자 정보 등록", description = "사용자 정보를 입력하는 기능입니다.")
+    @Operation(summary = "회원가입", description = "사용자가 회원가입 하는 기능입니다.")
     @ApiResponse(responseCode = "200", description = "회원가입 성공")
     @ApiResponse(responseCode = "400", description = "회원가입 실패")
     @PostMapping("/signup/{role}")
