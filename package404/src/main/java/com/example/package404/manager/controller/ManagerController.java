@@ -11,6 +11,7 @@ import com.example.package404.user.model.Dto.UserResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/manager")
+@Tag(name = "매니저 기능", description = "매니저 관리 API")
 public class ManagerController {
     private final ManagerService managerService;
     private final BaseResponseServiceImpl baseResponseService;

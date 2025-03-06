@@ -66,6 +66,8 @@ public class SwaggerConfig {
                     // 직접 만든 필터의 문서를 swagger에 등록
                     operation.addTagsItem("사용자 로그인 기능");
                     operation.summary("로그인 관리 API");
+                    operation.description("사용자가 로그인 하는 기능입니다.");
+
                     PathItem pathItem = new PathItem().post(operation);
                     openApi.getPaths().addPathItem("/login", pathItem);
 
@@ -84,8 +86,8 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("Springdoc 테스트")
-                .description("Springdoc을 사용한 Swagger UI 테스트")
+                .title("EduLink API")
+                .description("Springdoc을 사용한 Swagger UI 테스트를 통해 EduLink 서비스의 백엔드 API를 테스트합니다.")
                 .version("1.0.0");
     }
 }
