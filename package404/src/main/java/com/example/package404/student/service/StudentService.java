@@ -12,6 +12,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
 
 @RequiredArgsConstructor
 @Service
@@ -94,4 +100,48 @@ public class StudentService {
             throw new StudentException(StudentResponseStatus.INVALID_UPDATE_ACTION);
         }
     }
+
+    public List<StudentDetailResponseDto> batchUpdate(List<Long> userIds, String action) {
+        if (userIds == null || userIds.isEmpty()) {
+            throw new StudentException(StudentResponseStatus.STUDENT_NOT_FOUND);
+        }
+
+        List<User> users = userRepository.findAllById(userIds);
+        if (users.isEmpty()) {
+            throw new StudentException(StudentResponseStatus.STUDENT_NOT_FOUND);
+        }
+
+        List<Long> studentDetailIds = users.stream()
+                .filter(u -> u.getStudentDetail() != null)
+                .map(u -> u.getStudentDetail().getIdx())
+                .collect(Collectors.toList());
+
+        List<StudentDetail> studentDetails = studentRepository.findAllById(studentDetailIds);
+        if (studentDetails.isEmpty()) {
+            throw new StudentException(StudentResponseStatus.STUDENT_NOT_FOUND);
+        }
+
+        Map<String, Consumer<StudentDetail>> updateActions = new HashMap<>();
+        updateActions.put("testStatus", StudentDetail::updateTestStatus);
+        updateActions.put("perception", StudentDetail::updatePerception);
+        updateActions.put("attendance", StudentDetail::updateAttendance);
+        updateActions.put("leaveEarly", StudentDetail::updateLeaveEarly);
+        updateActions.put("outing", StudentDetail::updateOuting);
+        updateActions.put("vacationLeft", StudentDetail::updateVacationLeft);
+
+        Consumer<StudentDetail> updateFunction = updateActions.get(action);
+        if (updateFunction == null) {
+            throw new StudentException(StudentResponseStatus.INVALID_UPDATE_ACTION);
+        }
+
+        studentDetails.forEach(updateFunction);
+
+        List<StudentDetail> updatedStudents = studentRepository.saveAll(studentDetails);
+
+        return updatedStudents.stream()
+                .map(StudentDetailResponseDto::from)
+                .collect(Collectors.toList());
+    }
+
+
 }
