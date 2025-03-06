@@ -74,7 +74,7 @@ public class UserController {
                     InstructorResponseStatus.SUCCESS
             );
         } else if ("STUDENT".equalsIgnoreCase(role)) {
-            StudentResponseDto studentInfo = studentService.readAllInfo(user.getIdx());
+            Object studentInfo = studentService.readAllInfo(user.getIdx());
             return baseResponseService.getSuccessResponse(
                     studentInfo,
                     CommonResponseStatus.SUCCESS
