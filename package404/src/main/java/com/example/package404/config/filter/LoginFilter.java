@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.example.package404.utils.JwtUtil;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 
 @RequiredArgsConstructor
@@ -64,5 +65,12 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         cookie.setMaxAge(3600);
 
         response.addCookie(cookie);
+        response.setContentType("application/json;charset=UTF-8");
+        response.setStatus(HttpServletResponse.SC_OK);
+        String jsonResponse = String.format(
+                "{\"token\": \"%s\", \"role\": \"%s\", \"email\": \"%s\"}",
+                token, role, user.getEmail()
+        );
+        response.getOutputStream().write(jsonResponse.getBytes(StandardCharsets.UTF_8));
     }
 }
