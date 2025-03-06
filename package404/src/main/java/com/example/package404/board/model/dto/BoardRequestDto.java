@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Builder
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 public class BoardRequestDto {
     private String title;
     private String content;
+    private List<String> files;
 
     public Board toEntity(User loginUser, int boardType) {
         return Board.builder()
