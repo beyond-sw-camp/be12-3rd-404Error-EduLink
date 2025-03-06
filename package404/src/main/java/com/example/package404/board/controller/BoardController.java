@@ -1,9 +1,6 @@
 package com.example.package404.board.controller;
 
-import com.example.package404.board.model.dto.BoardPageResponse;
-import com.example.package404.board.model.dto.BoardReadResponseDto;
-import com.example.package404.board.model.dto.BoardRequestDto;
-import com.example.package404.board.model.dto.BoardResponseDto;
+import com.example.package404.board.model.dto.*;
 import com.example.package404.board.service.BoardService;
 import com.example.package404.global.response.BaseResponse;
 import com.example.package404.global.response.BaseResponseServiceImpl;
@@ -52,4 +49,13 @@ public class BoardController {
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
     }
 
+    @Operation(
+            summary = "게시글 삭제하기",
+            description = "boardIdx를 전달받아 게시글 하나를 삭제합니다."
+    )
+    @DeleteMapping("/delete/{boardIdx}")
+    public BaseResponse<Object> delete(@AuthenticationPrincipal User loginUser, @PathVariable Long boardIdx) {
+        BoardDeleteResponse response = boardService.deleteBoard(loginUser, boardIdx);
+        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.DELETED);
+    }
 }

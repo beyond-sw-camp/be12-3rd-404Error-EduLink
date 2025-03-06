@@ -2,7 +2,10 @@ package com.example.package404.user.repository;
 
 import com.example.package404.student.model.Dto.StudentResponseDto;
 import com.example.package404.user.model.User;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,4 +16,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByRoleEquals(String roleUser);
 
     List<User> findByRole(String role);
+
+
+
+    @Query("SELECT u FROM User u JOIN FETCH u.instructor WHERE u.role = :role")
+    List<User> findUsersWithInstructorByRole(@Param("role") String role);
+
+//    List<User> findUsersByRoleWithInstructor(String instructor);
 }

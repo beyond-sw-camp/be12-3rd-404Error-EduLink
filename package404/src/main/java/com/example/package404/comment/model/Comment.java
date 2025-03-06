@@ -1,6 +1,7 @@
 package com.example.package404.comment.model;
 
 import com.example.package404.board.model.Board;
+import com.example.package404.comment.model.dto.CommentUpdateRequest;
 import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -37,4 +38,8 @@ public class Comment {
     @JoinColumn(name = "user_idx")
     private User user;
 
+    public void updateContent(String content) {
+        this.content = content;
+        this.modifiedDate = LocalDateTime.now();
+    }
 }

@@ -5,14 +5,14 @@ import com.example.package404.global.response.BaseResponse;
 import com.example.package404.global.response.responseStatus.CommonResponseStatus;
 import com.example.package404.global.response.responseStatus.ManagerResponseStatus;
 import com.example.package404.instructor.model.Instructor;
+import com.example.package404.instructor.model.dto.res.InstructorPageResponse;
 import com.example.package404.instructor.model.dto.res.InstructorResponseDto;
 import com.example.package404.instructor.repository.InstructorRepository;
 import com.example.package404.manager.model.Test;
-import com.example.package404.manager.model.dto.ManagerResponseDto;
-import com.example.package404.manager.model.dto.TestRequestDto;
-import com.example.package404.manager.model.dto.TestResponseDto;
+import com.example.package404.manager.model.dto.*;
 import com.example.package404.manager.repository.ManagerRepository;
 import com.example.package404.manager.repository.TestRepository;
+import com.example.package404.student.model.Dto.StudentDetailPageResponse;
 import com.example.package404.student.model.Dto.StudentDetailResponseDto;
 import com.example.package404.student.model.StudentDetail;
 import com.example.package404.student.repository.StudentRepository;
@@ -20,6 +20,8 @@ import com.example.package404.user.model.Dto.UserResponseDto;
 import com.example.package404.user.model.User;
 import com.example.package404.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,14 +37,12 @@ public class ManagerService {
     private final TestRepository testRepository;
 
     @Transactional(readOnly = true)
-    public BaseResponse<List<ManagerResponseDto>> getManagerList() {
-        List<User> managerList = managerRepository.findAll();
-        if (managerList.isEmpty()) {
+    public BaseResponse<ManagerPageResponse> getManagerList(int page, int size) {
+        Page<User> managerPage = managerRepository.findByRole("MANAGER", PageRequest.of(page, size));
+        if (managerPage.isEmpty()) {
             throw new ManagerException(ManagerResponseStatus.MANAGER_NOT_FOUND);
         }
-        List<ManagerResponseDto> response = managerList.stream()
-                .map(ManagerResponseDto::of)
-                .toList();
+        ManagerPageResponse response = ManagerPageResponse.from(managerPage);
         return new BaseResponse<>(true, CommonResponseStatus.SUCCESS.getMessage(),
                 CommonResponseStatus.SUCCESS.getCode(), response);
     }
@@ -73,29 +73,25 @@ public class ManagerService {
 //    }
 
     @Transactional(readOnly = true)
-    public BaseResponse<List<InstructorResponseDto>> getInstructorList() {
-        List<Instructor> instructorList = instructorRepository.findAll();
-        if (instructorList.isEmpty()) {
+    public BaseResponse<InstructorPageResponse> getInstructorList(int page, int size) {
+        Page<Instructor> instructorPage = instructorRepository.findAll(PageRequest.of(page, size));
+        if (instructorPage.isEmpty()) {
             throw new ManagerException(ManagerResponseStatus.MANAGER_NOT_FOUND);
         }
-        List<InstructorResponseDto> response = instructorList.stream()
-                .map(InstructorResponseDto::from)
-                .toList();
+        InstructorPageResponse response = InstructorPageResponse.from(instructorPage);
         return new BaseResponse<>(true, CommonResponseStatus.SUCCESS.getMessage(),
                 CommonResponseStatus.SUCCESS.getCode(), response);
     }
 
     @Transactional(readOnly = true)
-    public BaseResponse<List<StudentDetailResponseDto>> getStudentList() {
-        List<StudentDetail> studentList = studentRepository.findAll();
+    public BaseResponse<StudentDetailPageResponse> getStudentList(int page, int size) {
+        Page<StudentDetail> studentList = studentRepository.findAllStudents(PageRequest.of(page, size));
         if (studentList.isEmpty()) {
             throw new ManagerException(ManagerResponseStatus.MANAGER_NOT_FOUND);
         }
-        List<StudentDetailResponseDto> response = studentList.stream()
-                .map(StudentDetailResponseDto::from)
-                .toList();
+
         return new BaseResponse<>(true, CommonResponseStatus.SUCCESS.getMessage(),
-                CommonResponseStatus.SUCCESS.getCode(), response);
+                CommonResponseStatus.SUCCESS.getCode(), StudentDetailPageResponse.from(studentList));
     }
 
     @Transactional
@@ -111,6 +107,7 @@ public class ManagerService {
                 .orElseThrow(() -> new ManagerException(ManagerResponseStatus.MANAGER_NOT_FOUND));
         test.setTitle(dto.getTitle());
         test.setContent(dto.getContent());
+        test.setCourse(dto.getCourse());
         testRepository.save(test);
         return new BaseResponse<>(true, "테스트 수정 성공",
                 CommonResponseStatus.SUCCESS.getCode(), TestResponseDto.of(test));
@@ -126,14 +123,12 @@ public class ManagerService {
     }
 
     @Transactional(readOnly = true)
-    public BaseResponse<List<TestResponseDto>> getTestList() {
-        List<Test> testList = testRepository.findAllWithCourse();
-        if (testList.isEmpty()) {
+    public BaseResponse<TestPageResponse> getTestList(int page, int size) {
+        Page<Test> testPage = testRepository.findAllWithCourse(PageRequest.of(page, size));
+        if (testPage.isEmpty()) {
             throw new ManagerException(ManagerResponseStatus.MANAGER_NOT_FOUND);
         }
-        List<TestResponseDto> response = testList.stream()
-                .map(TestResponseDto::of)
-                .toList();
+        TestPageResponse response = TestPageResponse.from(testPage);
         return new BaseResponse<>(true, CommonResponseStatus.SUCCESS.getMessage(),
                 CommonResponseStatus.SUCCESS.getCode(), response);
     }

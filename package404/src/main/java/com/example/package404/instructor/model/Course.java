@@ -2,6 +2,7 @@ package com.example.package404.instructor.model;
 
 
 import com.example.package404.manager.model.Test;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,13 +26,16 @@ public class Course {
     private int generation;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore
     private List<Curriculum> curriculumList = new ArrayList<>();
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore
     private List<Test> testList = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name="user_idx")
+    @JsonIgnore
+    @JoinColumn(name = "instructor_idx")
     private Instructor instructor;
 
 
