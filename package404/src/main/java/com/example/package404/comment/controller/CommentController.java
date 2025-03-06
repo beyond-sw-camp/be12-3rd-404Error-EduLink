@@ -9,6 +9,7 @@ import com.example.package404.global.response.responseStatus.BaseResponseStatus;
 import com.example.package404.global.response.responseStatus.CommonResponseStatus;
 import com.example.package404.global.response.responseStatus.UserResponseStatus;
 import com.example.package404.user.model.User;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,10 @@ public class CommentController {
     private final BaseResponseService baseResponseService;
     private final Logger log = LoggerFactory.getLogger(getClass());
 
+    @Operation(
+            summary = "댓글 작성하기",
+            description = "boardIdx를 전달받아 전달 받은 boardIdx의 게시글에 댓글을 작성합니다."
+    )
     @PostMapping("/register/{boardIdx}")
     public BaseResponse<Object> register(@AuthenticationPrincipal User loginUser, @PathVariable Long boardIdx, @RequestBody CommentRequestDto dto) {
         if (loginUser == null) {
