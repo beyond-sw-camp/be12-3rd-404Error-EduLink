@@ -24,6 +24,8 @@ public class BoardReadResponseDto {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
+    private List<String> imageUrls;
+
     private List<CommentReadResponseDto> comments;
 
     public static BoardReadResponseDto from(Board board) {
@@ -38,7 +40,11 @@ public class BoardReadResponseDto {
                                 .modifiedDate(comment.getModifiedDate())
                                 .writer(comment.getUser().getName())
                                 .build())
-                        .collect(Collectors.toList())).createdDate(board.getCreatedDate()).modifiedDate(board.getModifiedDate()).build();
+                        .collect(Collectors.toList()))
+                .imageUrls(
+                        board.getImageList() == null ? List.of() : board.getImageList().stream()
+                                .map(image -> image.getUrl()).toList()
+                ).createdDate(board.getCreatedDate()).modifiedDate(board.getModifiedDate()).build();
     }
 
 }

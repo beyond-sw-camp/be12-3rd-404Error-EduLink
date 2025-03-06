@@ -3,17 +3,13 @@ package com.example.package404.instructor.controller;
 import com.example.package404.global.response.BaseResponse;
 import com.example.package404.global.response.BaseResponseServiceImpl;
 import com.example.package404.global.response.responseStatus.InstructorResponseStatus;
-import com.example.package404.instructor.model.Curriculum;
 import com.example.package404.instructor.model.dto.req.CourseRegister;
 import com.example.package404.instructor.model.dto.res.CurriculumResponseDto;
 import com.example.package404.instructor.model.dto.res.InstructorCourseListResponseDto;
 import com.example.package404.instructor.model.dto.res.CourseResponseDto;
-import com.example.package404.instructor.repository.CourseRepository;
 import com.example.package404.instructor.service.CourseService;
 import com.example.package404.user.model.User;
-import com.example.package404.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +17,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/course")
-public class CourstController {
+public class CourseController {
 
     private final BaseResponseServiceImpl baseResponseService;
 
@@ -31,7 +27,7 @@ public class CourstController {
 
 
     //Todo baseResponse
-
+    // o 근데 기수만 쫌 자동생성되게
     @PostMapping("/register")
     public BaseResponse register(@AuthenticationPrincipal User user, @RequestBody CourseRegister dto) {
 
@@ -45,7 +41,7 @@ public class CourstController {
 
 
     //Todo baseResponse
-    // 강사가 맡았던 기수 조회
+    // 강사가 맡았던 기수 조회 o
     @GetMapping("/instructor/{userIdx}")
     public BaseResponse<List<InstructorCourseListResponseDto>> getInstructorCourse(@PathVariable Long userIdx) {
         List<InstructorCourseListResponseDto> response = courseService.findIstructorCourse(userIdx);
@@ -54,7 +50,7 @@ public class CourstController {
     }
 
     //Todo baseResponse
-
+    // O
     //교과목 별 조회
     @GetMapping("/curriculum")
     public  BaseResponse<List<CurriculumResponseDto>>getCurriculumBySubject(@RequestParam String subject) {
@@ -69,7 +65,7 @@ public class CourstController {
 
 
     //Todo baseResponse
-
+    // o
     // 이건 현재 기수들 코스 조회하는거
     @GetMapping("/{generation}")
     public BaseResponse<CourseResponseDto> read(@PathVariable int generation) {

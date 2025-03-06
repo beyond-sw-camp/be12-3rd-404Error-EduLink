@@ -12,6 +12,6 @@ public interface StudentRepository extends JpaRepository<StudentDetail, Long> {
     @Query("SELECT sd FROM StudentDetail sd JOIN FETCH sd.user u")
     Page<StudentDetail> findAllStudents(PageRequest of);
 
-    @Query("SELECT sd FROM StudentDetail sd JOIN FETCH sd.user u WHERE u.idx = :idx")
+    @Query("SELECT sd FROM StudentDetail sd JOIN FETCH sd.user u WHERE sd.idx = :idx")
     Optional<StudentDetail> findByStudent(Long idx);
 }
