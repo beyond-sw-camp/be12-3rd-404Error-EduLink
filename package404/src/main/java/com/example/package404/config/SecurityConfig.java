@@ -56,6 +56,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())  // CSRF 비활성화
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .logout(logout -> logout.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/user/signup/{role}").permitAll()  // 로그인, 회원가입 허용
                         .requestMatchers("/v3/**", "/v3/api-docs/**", "/swagger-ui/**",
