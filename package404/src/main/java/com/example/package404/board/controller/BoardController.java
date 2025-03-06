@@ -8,13 +8,16 @@ import com.example.package404.global.response.responseStatus.CommonResponseStatu
 import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/board")
+@Tag(name = "게시판 기능", description = "게시판 관리 API")
 public class BoardController {
     private final BoardService boardService;
     private final BaseResponseServiceImpl baseResponseService;
@@ -24,7 +27,7 @@ public class BoardController {
             description = "boardType을 통해 어떤 게시판에 글을 작성할지 지정한 뒤, 제목, 내용, 첨부파일과 함께 글을 작성합니다."
     )
     @PostMapping("/register/{boardType}")
-    public BaseResponse<Object> register(@AuthenticationPrincipal User loginUser, @RequestBody BoardRequestDto boardRequestDto, @PathVariable int boardType) {
+    public BaseResponse<Object> register(@AuthenticationPrincipal User loginUser, @RequestBody BoardRequestDto boardRequestDto, @PathVariable("boardType") int boardType) {
         BoardResponseDto response = boardService.register(loginUser, boardRequestDto, boardType);
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.CREATED);
     }
@@ -34,7 +37,7 @@ public class BoardController {
             description = "boardIdx를 전달받아 게시글 하나의 정보를 확인합니다."
     )
     @GetMapping("/read/{boardIdx}")
-    public BaseResponse<Object> read(@PathVariable Long boardIdx) {
+    public BaseResponse<Object> read(@PathVariable @Param("boardIdx") Long boardIdx) {
         BoardReadResponseDto response = boardService.read(boardIdx);
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
     }
@@ -55,7 +58,13 @@ public class BoardController {
     )
     @DeleteMapping("/delete/{boardIdx}")
     public BaseResponse<Object> delete(@AuthenticationPrincipal User loginUser, @PathVariable Long boardIdx) {
-        BoardDeleteResponse response = boardService.deleteBoard(loginUser, boardIdx);
+        BoardDeleteResponseDto response = boardService.deleteBoard(loginUser, boardIdx);
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.DELETED);
+    }
+
+    @PatchMapping("/update/{boardIdx}")
+    public BaseResponse<Object> update(@AuthenticationPrincipal User loginUser, @PathVariable Long boardIdx, @RequestBody BoardUpdateRequestDto boardUpdateRequestDto) {
+        BoardUpdateResponseDto response = boardService.updateBoard(loginUser, boardIdx, boardUpdateRequestDto);
+        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.UPDATED);
     }
 }

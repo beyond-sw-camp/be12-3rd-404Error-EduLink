@@ -29,7 +29,7 @@ public class StudentDetailPageResponse {
     @Schema(description = "이전 페이지 여부")
     private boolean hasPrevious;
     @Schema(description = "해당 페이지 학생 목록")
-    private List<StudentDetailResponseDto> studentList;
+    private List<StudentResponseDto> studentList;
 
     public static StudentDetailPageResponse from(Page<StudentDetail> studentPage) {
         return StudentDetailPageResponse.builder()
@@ -39,7 +39,7 @@ public class StudentDetailPageResponse {
                 .totalPages(studentPage.getTotalPages())
                 .hasNext(studentPage.hasNext())
                 .hasPrevious(studentPage.hasPrevious())
-                .studentList(studentPage.stream().map(StudentDetailResponseDto::from).collect(Collectors.toList()))
+                .studentList(studentPage.stream().map(StudentResponseDto::from).collect(Collectors.toList()))
                 .build();
     }
 }

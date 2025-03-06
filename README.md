@@ -118,7 +118,7 @@ DB<br>
 
 
 ## 📃 API 명세서
-<a href="">API 명세서</a>
+<a href="http://www.edulink-back-api.kro.kr:8080/swagger-ui/index.html">API 명세서</a>
 
 
 

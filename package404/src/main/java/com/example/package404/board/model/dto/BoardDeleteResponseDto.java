@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class BoardDeleteResponse {
+public class BoardDeleteResponseDto {
     private Long boardIdx;
-    public static BoardDeleteResponse from(Long boardIdx) {
-        return BoardDeleteResponse.builder().boardIdx(boardIdx).build();
+    public static BoardDeleteResponseDto from(Long boardIdx) {
+        return BoardDeleteResponseDto.builder().boardIdx(boardIdx).build();
     }
 }

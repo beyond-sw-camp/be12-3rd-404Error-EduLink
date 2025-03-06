@@ -9,6 +9,7 @@ import com.example.package404.global.response.responseStatus.CommonResponseStatu
 import com.example.package404.global.response.responseStatus.UserResponseStatus;
 import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/comment")
+@Tag(name = "댓글 기능", description = "댓글 관리 API")
 public class CommentController {
     private final CommentService commentService;
     private final BaseResponseService baseResponseService;
