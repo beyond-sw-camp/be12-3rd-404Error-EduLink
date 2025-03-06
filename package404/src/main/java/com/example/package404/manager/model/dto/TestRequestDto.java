@@ -2,6 +2,7 @@ package com.example.package404.manager.model.dto;
 
 import com.example.package404.instructor.model.Course;
 import com.example.package404.manager.model.Test;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
@@ -12,7 +13,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @Builder
 public class TestRequestDto {
+    @Schema(description = "시험 제목", required = true, example = "test_title1")
     private String title;
+    @Schema(description = "시험 내용", required = true, example = "test_content1")
     private String content;
     private Course course;
 
