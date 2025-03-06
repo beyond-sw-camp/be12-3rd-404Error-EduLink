@@ -39,30 +39,33 @@ public class SwaggerConfig {
 
                     // 문서에서 요청 설정
                     Schema<?> schema = new ObjectSchema()
-                            .addProperty("email", new StringSchema())
-                            .addProperty("password", new StringSchema());
+                            .addProperty("email", new StringSchema().example("test@test.com"))  // email 예시 추가
+                            .addProperty("password", new StringSchema().example("qwer1234"));    // password 예시 추가
+
                     RequestBody requestBody = new RequestBody().content(
-                            new Content().addMediaType("application/json", new MediaType().schema(schema)));
+                            new Content().addMediaType("application/json", new io.swagger.v3.oas.models.media.MediaType().schema(schema))
+                    );
 
                     operation.setRequestBody(requestBody);
 
 
                     // 문서에서 응답 설정
-                    ApiResponses response = new ApiResponses();
-                    response.addApiResponse(
+                    ApiResponses responses = new ApiResponses();
+                    responses.addApiResponse(
                             String.valueOf(HttpStatus.OK.value()),
-                            new ApiResponse().description(HttpStatus.OK.getReasonPhrase())
+                            new ApiResponse().description("로그인 성공")  // 200 OK 응답을 "로그인 성공"으로 설명
                     );
-                    response.addApiResponse(
+                    responses.addApiResponse(
                             String.valueOf(HttpStatus.BAD_REQUEST.value()),
-                            new ApiResponse().description(HttpStatus.BAD_REQUEST.getReasonPhrase())
+                            new ApiResponse().description("로그인 실패")  // 400 Bad Request 응답을 "로그인 실패"로 설명
                     );
-                    operation.setResponses(response);
+                    operation.setResponses(responses);
+
 
 
                     // 직접 만든 필터의 문서를 swagger에 등록
-                    operation.addTagsItem("user-controller");
-                    operation.summary("로그인 하는 기능");
+                    operation.addTagsItem("사용자 로그인 기능");
+                    operation.summary("로그인 관리 API");
                     PathItem pathItem = new PathItem().post(operation);
                     openApi.getPaths().addPathItem("/login", pathItem);
 
