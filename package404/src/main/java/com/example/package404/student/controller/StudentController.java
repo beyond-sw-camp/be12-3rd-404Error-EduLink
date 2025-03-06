@@ -11,6 +11,7 @@ import com.example.package404.student.model.Dto.StudentResponseDto;
 import com.example.package404.student.service.StudentService;
 import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/student")
+@Tag(name = "학생 기능", description = "학생 관리 API")
 public class StudentController {
     private final StudentService studentService;
     private final BaseResponseServiceImpl baseResponseService;
