@@ -27,7 +27,7 @@ public class BoardController {
             description = "boardType을 통해 어떤 게시판에 글을 작성할지 지정한 뒤, 제목, 내용, 첨부파일과 함께 글을 작성합니다."
     )
     @PostMapping("/register/{boardType}")
-    public BaseResponse<Object> register(@AuthenticationPrincipal User loginUser, @RequestBody BoardRequestDto boardRequestDto, @PathVariable int boardType) {
+    public BaseResponse<Object> register(@AuthenticationPrincipal User loginUser, @RequestBody BoardRequestDto boardRequestDto, @PathVariable("boardType") int boardType) {
         BoardResponseDto response = boardService.register(loginUser, boardRequestDto, boardType);
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.CREATED);
     }

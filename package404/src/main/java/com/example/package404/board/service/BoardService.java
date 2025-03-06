@@ -7,7 +7,7 @@ import com.example.package404.board.model.dto.BoardRequestDto;
 import com.example.package404.board.model.dto.BoardResponseDto;
 import com.example.package404.board.repository.BoardImageRepository;
 import com.example.package404.board.repository.BoardRepository;
-import com.example.package404.board.repository.PreSignedCloudImageRepository;
+import com.example.package404.common.s3.PreSignedUrlService;
 import com.example.package404.global.exception.BoardException;
 import com.example.package404.global.response.responseStatus.BoardResponseStatus;
 import com.example.package404.user.model.User;
@@ -26,37 +26,42 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class BoardService {
     private final BoardRepository boardRepository;
-    private final PreSignedCloudImageRepository preSignedCloudImageRepository;
     private final BoardImageRepository boardImageRepository;
+    private final PreSignedUrlService preSignedUrlService;
 
-    public BoardResponseDto register(User loginUser,BoardRequestDto boardRequestDto, int boardType) {
+    public BoardResponseDto register(User loginUser, BoardRequestDto boardRequestDto, int boardType) {
         if (boardRequestDto == null) {
-            throw new BoardException(BoardResponseStatus.INVALID_BOARD_ID); // 잘못된 요청 데이터
+            throw new BoardException(BoardResponseStatus.INVALID_BOARD_ID);
         }
 
         try {
+
             Board board = boardRepository.save(boardRequestDto.toEntity(loginUser, boardType));
 
             List<String> uploadFilePaths = new ArrayList<>();
             List<String> preSignedUrls = new ArrayList<>();
-            for (String file : boardRequestDto.getFiles()) {
-                String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd/"));
-                String fileName = date + UUID.randomUUID() + "_" + file;
 
-                String preSignedUrl = preSignedCloudImageRepository.generatePreSignedUrl(fileName, "image/png");
+            for (String fileName : boardRequestDto.getFiles()) {
+                // 파일 이름 변환
+                String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd/"));
+                String newFileName = date + UUID.randomUUID() + "_" + fileName;
+
+                // Presigned URL 생성
+                String preSignedUrl = preSignedUrlService.generatePreSignedUrl(newFileName, "image/png");
                 preSignedUrls.add(preSignedUrl);
-                uploadFilePaths.add(fileName);
+                uploadFilePaths.add(newFileName);
             }
 
-
+            // S3 업로드 완료 후 DB에 이미지 저장
             boardImageRepository.saveAllImages(uploadFilePaths, board);
 
-
-            return BoardResponseDto.from(board);
+            // Presigned URL을 포함하여 응답 반환
+            return BoardResponseDto.from(board, preSignedUrls);
         } catch (Exception e) {
-            throw new BoardException(BoardResponseStatus.BOARD_CREATION_FAILED); // 게시글 저장 실패
+            throw new BoardException(BoardResponseStatus.BOARD_CREATION_FAILED);
         }
     }
+
 
     public BoardReadResponseDto read(Long boardIdx) {
         if (boardIdx == null || boardIdx <= 0) {
