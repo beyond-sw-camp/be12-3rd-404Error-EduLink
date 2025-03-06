@@ -3,10 +3,9 @@ package com.example.package404.manager.controller;
 import com.example.package404.global.response.BaseResponse;
 import com.example.package404.global.response.BaseResponseServiceImpl;
 import com.example.package404.global.response.responseStatus.CommonResponseStatus;
+import com.example.package404.instructor.model.dto.res.InstructorPageResponse;
 import com.example.package404.instructor.model.dto.res.InstructorResponseDto;
-import com.example.package404.manager.model.dto.ManagerResponseDto;
-import com.example.package404.manager.model.dto.TestRequestDto;
-import com.example.package404.manager.model.dto.TestResponseDto;
+import com.example.package404.manager.model.dto.*;
 import com.example.package404.manager.service.ManagerService;
 import com.example.package404.user.model.Dto.UserResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,8 +28,10 @@ public class ManagerController {
             description = "매니저의 정보와 그 목록들을 가져오는 요청."
     )
     @GetMapping("/list")
-    public BaseResponse<List<ManagerResponseDto>> managerList() {
-        return managerService.getManagerList();
+    public BaseResponse<ManagerPageResponse> managerList(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return managerService.getManagerList(page, size);
     }
 
     @Operation(
@@ -47,8 +48,10 @@ public class ManagerController {
             description = "강사의 정보와 그 목록들을 가져오는 요청."
     )
     @GetMapping("/instructor/list")
-    public BaseResponse<List<InstructorResponseDto>> instructorList() {
-        return managerService.getInstructorList();
+    public BaseResponse<InstructorPageResponse> instructorList(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return managerService.getInstructorList(page, size);
     }
 
     @Operation(
@@ -83,7 +86,9 @@ public class ManagerController {
             description = "시험의 제목, 내용, 과목을 가져온다"
     )
     @GetMapping("/test/list")
-    public BaseResponse<List<TestResponseDto>> testList() {
-        return managerService.getTestList();
+    public BaseResponse<TestPageResponse> testList(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return managerService.getTestList(page, size);
     }
 }
