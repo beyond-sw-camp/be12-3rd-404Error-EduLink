@@ -9,6 +9,7 @@ import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class BoardController {
             description = "boardIdx를 전달받아 게시글 하나의 정보를 확인합니다."
     )
     @GetMapping("/read/{boardIdx}")
-    public BaseResponse<Object> read(@PathVariable Long boardIdx) {
+    public BaseResponse<Object> read(@PathVariable @Param("boardIdx") Long boardIdx) {
         BoardReadResponseDto response = boardService.read(boardIdx);
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
     }

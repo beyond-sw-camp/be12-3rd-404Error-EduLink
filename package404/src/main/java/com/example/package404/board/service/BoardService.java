@@ -5,6 +5,7 @@ import com.example.package404.board.model.dto.*;
 import com.example.package404.board.repository.BoardImageRepository;
 import com.example.package404.board.repository.BoardRepository;
 import com.example.package404.common.s3.PreSignedUrlService;
+import com.example.package404.common.s3.S3Service;
 import com.example.package404.global.exception.BoardException;
 import com.example.package404.global.response.responseStatus.BoardResponseStatus;
 import com.example.package404.user.model.User;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -25,6 +27,7 @@ public class BoardService {
     private final BoardRepository boardRepository;
     private final BoardImageRepository boardImageRepository;
     private final PreSignedUrlService preSignedUrlService;
+    private final S3Service s3Service;
 
     public BoardResponseDto register(User loginUser, BoardRequestDto boardRequestDto, int boardType) {
         if (boardRequestDto == null) {
@@ -89,13 +92,31 @@ public class BoardService {
         return BoardPageResponse.from(boardList);
     }
 
+    @Transactional
     public BoardDeleteResponse deleteBoard(User loginUser, Long boardIdx) {
         Board board = boardRepository.findById(boardIdx)
                 .orElseThrow(() -> new BoardException(BoardResponseStatus.INVALID_BOARD_ID));
-        if (!board.getUser().getIdx().equals(loginUser.getIdx())) {
-            throw new BoardException(BoardResponseStatus.BOARD_ACCESS_DENIED);  // 권한 없음 예외 발생
+
+        // 본인 게시글인지 확인
+        if (!board.getUser().equals(loginUser)) {
+            throw new BoardException(BoardResponseStatus.BOARD_ACCESS_DENIED);
         }
+
+        // 1. 게시글에 포함된 모든 이미지 가져오기
+        List<String> fileUrls = boardImageRepository.findUrlsByBoard(board);
+
+        // 2. S3에서 파일 삭제
+        if (!fileUrls.isEmpty()) {
+            s3Service.deleteFiles(fileUrls);
+        }
+
+        // 3. DB에서 파일 정보 삭제
+        boardImageRepository.deleteByBoard(board);
+
+        // 4. 게시글 삭제
         boardRepository.delete(board);
+
         return BoardDeleteResponse.from(board.getIdx());
     }
+
 }
