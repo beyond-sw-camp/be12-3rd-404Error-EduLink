@@ -28,17 +28,12 @@ public class CourseService {
     
     private final CurriculumService curriculumService;
 
-
-    // 기수 등록
+    // 기수등록
     @Transactional
     public void register(CourseRegister dto, User user) {
-
-        Instructor instructor = instructorService.getInstructorId(user.getIdx());
-        if (instructor == null) {
-            throw new InstructorException(InstructorResponseStatus.INSTRUCTOR_NOT_FOUND);
-        }
-
+        Instructor instructor = instructorService.getInstructorByUserIdx(user.getIdx());  // ✅ Instructor 객체 반환
         Course course = dto.toEntity(instructor);
+
         try {
             course = courseRepository.save(course);
         } catch (Exception e) {
@@ -47,6 +42,10 @@ public class CourseService {
 
         curriculumService.registerCurriculum(dto.getCurriculumList(), course);
     }
+
+
+
+
 
     // 강사의 진행 코스 조회
     public List<InstructorCourseListResponseDto> findIstructorCourse(Long userIdx) {

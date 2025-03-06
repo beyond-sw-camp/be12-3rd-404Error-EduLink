@@ -3,6 +3,7 @@ package com.example.package404.user.service;
 import com.example.package404.global.exception.UserException;
 import com.example.package404.global.response.responseStatus.UserResponseStatus;
 import com.example.package404.instructor.model.dto.req.UpdateUserInstructorDto;
+import com.example.package404.user.model.Dto.UserInsSignUpDto;
 import com.example.package404.user.model.Dto.UserResponseDto;
 import com.example.package404.user.model.User;
 
@@ -17,7 +18,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
@@ -63,9 +63,17 @@ public class UserService implements UserDetailsService {
     @Transactional
     public User instructorSignup(UserRequestDto.SignupRequest dto) {
         String encodedPassword = passwordEncoder.encode(dto.getPassword());
+
         User user = userRepository.save(dto.toEntity(encodedPassword, "INSTRUCTOR"));
 
         return user;
+    }
+
+
+    //
+    public void CustomInstructorSignup(UserInsSignUpDto dto, String role) {
+        String encodedPassword = passwordEncoder.encode(dto.getPassword());
+        userRepository.save(dto.toEntity(encodedPassword , "INSTRUCTOR"));
     }
 
     @Transactional
@@ -107,5 +115,10 @@ public class UserService implements UserDetailsService {
 
     public void setInstructorInfo(Long instructorIdx, UpdateUserInstructorDto dto) {
         userRepository.save(dto.toInstructorEntity(instructorIdx));
+    }
+
+
+    public List<User> findUsersByRoleWithInstructor() {
+        return userRepository.findUsersWithInstructorByRole("INSTRUCTOR");
     }
 }

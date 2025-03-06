@@ -12,21 +12,24 @@ import java.util.Optional;
 
 @Repository
 public interface InstructorRepository  extends JpaRepository<Instructor, Long> {
+    Optional<Instructor> findByUser(User user);
+
+
+    @Query("SELECT i FROM Instructor i JOIN FETCH i.user WHERE i.user.idx = :userIdx")
+    Optional<Instructor> findByIdWithUser(@Param("userIdx") Long userIdx);
 
 
 
-//    @Query("SELECT i FROM Instructor i JOIN FETCH i.user WHERE i.userIdx = :userIdx")
-//    Optional<Instructor> findByIdWithUser(@Param("userIdx") Long userIdx);
 
-    @Query("SELECT DISTINCT i FROM Instructor i JOIN FETCH i.user u WHERE i.userIdx = :userIdx")
+
+
+////    ///
+//    @Query("SELECT DISTINCT i FROM Instructor i JOIN FETCH i.user u WHERE i.user.idx = :userIdx")
     Optional<Instructor> findDistinctInstructorByUserIdx(@Param("userIdx") Long userIdx);
+////
+//
 
 
-    @Query("SELECT i FROM Instructor i JOIN FETCH i.user WHERE i.id = :instructorId")
-    Optional<Instructor> findInstructorWithUser(@Param("instructorId") Long instructorId);
+    Optional<Instructor> findByUserIdx(Long userIdx);
 
-    Optional<Instructor> findById(Long userIdx);
-
-
-    Optional<Object> findByUser(User user);
-}
+ }

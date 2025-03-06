@@ -2,6 +2,7 @@ package com.example.package404.user.model;
 
 import com.example.package404.board.model.Board;
 import com.example.package404.comment.model.Comment;
+import com.example.package404.instructor.model.Instructor;
 import com.example.package404.student.model.StudentDetail;
 import com.example.package404.user.repository.UserRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -57,6 +58,9 @@ public class User implements UserDetails {
     @JsonIgnoreProperties("user")
     private List<Board> boards;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Instructor instructor;
+
     // 댓글이랑 관계 설정
 //    @OneToMany(mappedBy = "user")
 //    private List<Comment> comments;
@@ -83,12 +87,13 @@ public class User implements UserDetails {
 
         return authorities;
     }
-    public static UserDetails loadUserByEmail(String email, UserRepository userRepository) throws UsernameNotFoundException {
-    User user = userRepository.findByEmail(email)
-            .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다: " + email));
+//    public static UserDetails loadUserByEmail(String email, UserRepository userRepository) throws UsernameNotFoundException {
+//        User user = userRepository.findByEmail(email)
+//                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다: " + email));
+//
+//        return user;
+//    }
 
-    return user;
-}
 
 
 
@@ -105,5 +110,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void assignInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 }
