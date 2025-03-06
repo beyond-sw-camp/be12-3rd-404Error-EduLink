@@ -61,7 +61,6 @@ public class BoardController {
 
     @PatchMapping("/update/{boardIdx}")
     public BaseResponse<Object> update(@AuthenticationPrincipal User loginUser, @PathVariable Long boardIdx, @RequestBody BoardUpdateRequestDto boardUpdateRequestDto) {
-        System.out.println("삭제 파일 잘 나옴 ? :" + boardUpdateRequestDto.getDeleteFiles());
         BoardUpdateResponseDto response = boardService.updateBoard(loginUser, boardIdx, boardUpdateRequestDto);
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.UPDATED);
     }

@@ -44,22 +44,19 @@ public class BoardService {
             List<String> preSignedUrls = new ArrayList<>();
 
             for (String fileName : boardRequestDto.getFiles()) {
-                // 파일 이름 변환
                 String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd/"));
                 String newFileName = date + UUID.randomUUID() + "_" + fileName;
 
-                // Presigned URL 생성
                 String preSignedUrl = preSignedUrlService.generatePreSignedUrl(newFileName, "image/png");
                 preSignedUrls.add(preSignedUrl);
                 uploadFilePaths.add(newFileName);
             }
 
-            // S3 업로드 완료 후 DB에 이미지 저장
             boardImageRepository.saveAllImages(uploadFilePaths, board);
 
-            // Presigned URL을 포함하여 응답 반환
             return BoardResponseDto.from(board, preSignedUrls);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new BoardException(BoardResponseStatus.BOARD_CREATION_FAILED);
         }
     }
@@ -135,16 +132,20 @@ public class BoardService {
         if (requestDto.getAddFiles() != null && !requestDto.getAddFiles().isEmpty()) {
             List<BoardImage> boardImages = new ArrayList<>();
             for (String fileName : requestDto.getAddFiles()) {
-                String preSignedUrl = preSignedUrlService.generatePreSignedUrl(fileName, "image/png");
+                String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd/"));
+                String newFileName = date + UUID.randomUUID() + "_" + fileName;
+
+                String preSignedUrl = preSignedUrlService.generatePreSignedUrl(newFileName, "image/png");
                 newFileUrls.add(preSignedUrl);
 
                 boardImages.add(BoardImage.builder()
-                        .url(fileName)
+                        .url(newFileName)
                         .board(board)
                         .build());
             }
             boardImageRepository.saveAll(boardImages);
         }
+
 
         board.update(requestDto.getTitle(), requestDto.getContent());
 
