@@ -2,6 +2,7 @@ package com.example.package404.board.model.dto;
 
 import com.example.package404.board.model.Board;
 import com.example.package404.board.model.BoardImage;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,11 +18,17 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Builder
 public class BoardResponseDto {
+    @Schema(description = "작성된 게시글의 고유 아이디", example = "공지사항 제목 입니다.")
     private Long idx;
+    @Schema(description = "작성된 게시글의 제목", example = "공지사항 내용 입니다.")
     private String title;
+    @Schema(description = "작성된 게시글의 작성자", example = "작성자01")
     private String writer;
+    @Schema(description = "게시글이 작성된 시간", example = "2025-03-05")
     private LocalDateTime createdDate;
+    @Schema(description = "게시글 작성중 첨부한 파일을 저장하기 위한 preSignedUrl", example = "")
     private List<String> preSignedUrls;
+    @Schema(description = "게시글이 s3에 저장된 파일의 이름", example = "")
     private List<String> imageKeys;
 
     public static BoardResponseDto from(Board board) {
