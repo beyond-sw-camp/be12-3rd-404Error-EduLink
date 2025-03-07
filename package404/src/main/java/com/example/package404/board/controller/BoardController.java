@@ -53,6 +53,16 @@ public class BoardController {
     }
 
     @Operation(
+            summary = "게시글 작성자별 리스트보기",
+            description = "boardType 전달받아 로그인한 사용자의 게시물을 확인합니다."
+    )
+    @GetMapping("/listByUser/{boardType}")
+    public BaseResponse<Object> getUserBoardList(@AuthenticationPrincipal User loginUser, @PathVariable int boardType, int page, int size) {
+        BoardPageResponse response = boardService.getUserBoardList(loginUser, boardType, page, size);
+        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
+    }
+
+    @Operation(
             summary = "게시글 삭제하기",
             description = "boardIdx를 전달받아 게시글 하나를 삭제합니다."
     )

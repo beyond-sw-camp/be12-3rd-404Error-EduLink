@@ -91,6 +91,22 @@ public class BoardService {
         return BoardPageResponse.from(boardList);
     }
 
+    public BoardPageResponse getUserBoardList(User loginUser,int boardType, int page, int size) {
+        if (boardType < 0) {
+            throw new BoardException(BoardResponseStatus.INVALID_PAGE); // 잘못된 게시판 타입
+        }
+        if (page < 0 || size <= 0) {
+            throw new BoardException(BoardResponseStatus.INVALID_PAGE); // 잘못된 페이지 요청
+        }
+
+        Page<Board> boardList = boardRepository.findAllByUserAndBoardType(loginUser, boardType, PageRequest.of(page, size));
+        if (boardList.isEmpty()) {
+            throw new BoardException(BoardResponseStatus.BOARD_NOT_FOUND); // 게시판에 게시글 없음
+        }
+
+        return BoardPageResponse.from(boardList);
+    }
+
     @Transactional
     public BoardDeleteResponseDto deleteBoard(User loginUser, Long boardIdx) {
         Board board = boardRepository.findById(boardIdx)
