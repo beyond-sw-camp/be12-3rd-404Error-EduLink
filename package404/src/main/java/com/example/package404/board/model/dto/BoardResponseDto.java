@@ -13,12 +13,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class BoardResponseDto {
+    private Long idx;
     private String title;
     private String writer;
     private LocalDateTime createdDate;
 
     public static BoardResponseDto from(Board board) {
-        return BoardResponseDto.builder().title(board.getTitle()).writer(board.getUser().getName()).createdDate(board.getCreatedDate()).build();
+        return BoardResponseDto.builder().idx(board.getIdx()).title(board.getTitle()).writer(board.getUser().getName()).createdDate(board.getCreatedDate()).build();
     }
 
 }

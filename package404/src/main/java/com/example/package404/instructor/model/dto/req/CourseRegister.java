@@ -22,7 +22,7 @@ public class CourseRegister {
     @Schema(description = "기수", example = "1")
     private int generation; // 기수
 
-    @Schema(description = "커리큘럼 목록", example = "[{\"subject\": \"Java\", \"hours\": 40}, {\"subject\": \"Spring Framework\", \"hours\": 50}]")
+//    @Schema(description = "커리큘럼 목록", example = "[{\"subject\": \"Java\", \"hours\": 40}, {\"subject\": \"Spring Framework\", \"hours\": 50}]")
     List<CurriculumRegisterDto> curriculumList = new ArrayList<>(); // 커리큘럼 목록
 
     public Course toEntity(Instructor instructorIdx) {
