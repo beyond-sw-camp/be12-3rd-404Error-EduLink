@@ -4,6 +4,8 @@ import com.example.package404.config.filter.JwtFilter;
 import com.example.package404.config.filter.LoginFilter;
 import com.example.package404.user.service.UserService;
 import com.example.package404.utils.JwtUtil;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -56,9 +58,20 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())  // CSRF 비활성화
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .logout(logout -> logout.disable())
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessHandler((request, response, authentication) -> {
+                            Cookie cookie = new Cookie("Authorization", null);
+                            cookie.setHttpOnly(true);
+                            cookie.setSecure(true);
+                            cookie.setPath("/");
+                            cookie.setMaxAge(0);
+                            response.addCookie(cookie);
+                            response.setStatus(HttpServletResponse.SC_OK);
+                        })
+                )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/user/signup/{role}").permitAll()  // 로그인, 회원가입 허용
+                        .requestMatchers("/login", "/user/signup/{role}", "/logout").permitAll()  // 로그인, 회원가입 허용
                         .requestMatchers("/v3/**", "/v3/api-docs/**", "/swagger-ui/**",
                                 "/swagger-ui.html", "/swagger-resources/**", "/favicon.ico").permitAll()
                         .requestMatchers("/board/**").hasAnyRole("STUDENT", "INSTRUCTOR", "MANAGER") // 게시판은 로그인한 회원이라면 모두 허용
