@@ -55,7 +55,7 @@ public class UserController {
     }
 
     @Operation(summary = "회원정보 수정", description = "로그인한 사용자의 정보를 수정합니다. 기본 정보(생일, 비밀번호)와 역할에 따른 추가 정보(학생의 경우 주소, 강사의 경우 포트폴리오)를 업데이트합니다.")
-    @PutMapping("/update")
+    @PostMapping("/update")
     public BaseResponse<?> updateUserInfo(@AuthenticationPrincipal User user,
                                           @RequestBody UserUpdateRequestDto dto) {
         if (user == null) {
