@@ -34,7 +34,7 @@ public class Board {
     private LocalDateTime createdDate;
     @Schema(description = "게시글의 수정 시간", example = "2025-03-06")
     private LocalDateTime modifiedDate;
-    // 0 = 공지 게시판 / 1 = 일반 게시판 /
+    // 0 = 공지 게시판 / 1 = 일반 게시판 / 2 = 시험 / 3 = 자료실 / 4 = 과제 / 5 = 질의 응답
     @Schema(description = "게시글의 카테고리", example = "1")
     private int boardType;
 
