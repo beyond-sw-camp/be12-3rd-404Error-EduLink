@@ -52,6 +52,11 @@ public class Board {
     @BatchSize(size = 10)  // 한 번에 최대 10개의 이미지 조회
     private List<BoardImage> imageList = new ArrayList<>();
 
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+        this.modifiedDate = LocalDateTime.now();
+    }
 }
 
 
