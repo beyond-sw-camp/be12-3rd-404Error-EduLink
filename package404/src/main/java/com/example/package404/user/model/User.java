@@ -44,6 +44,7 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private String name;
+    private String profileUrl;
     private LocalDate birth;
     private boolean enabled;
     private String role;

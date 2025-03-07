@@ -34,6 +34,8 @@ public class UserResponseDto {
         private String email;
         @Schema(description = "유저 이름")
         private String name;
+        @Schema(description = "유저 프로필 이미지")
+        private String profileUrl;
         @Schema(description = "유저 생일")
         private LocalDate birth;
         @Schema(description = "유저 역할")
@@ -44,6 +46,7 @@ public class UserResponseDto {
                     .idx(entity.getIdx())
                     .email(entity.getEmail())
                     .name(entity.getName())
+                    .profileUrl(entity.getProfileUrl())
                     .birth(entity.getBirth())
                     .role(entity.getRole())
                     .build();
