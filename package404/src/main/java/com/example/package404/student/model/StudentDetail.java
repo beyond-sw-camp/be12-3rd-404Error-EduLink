@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -29,6 +31,11 @@ public class StudentDetail {
     @JoinColumn(name="user_idx")
     @JsonIgnore
     private User user;
+
+
+
+    @OneToMany(mappedBy="studentdetail")
+    private List<Attendance_Logs> attendance_logs;
 
     public void updateTestStatus() {
         this.testStatus = true;

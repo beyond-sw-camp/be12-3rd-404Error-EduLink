@@ -4,16 +4,14 @@ import com.example.package404.global.response.BaseResponse;
 import com.example.package404.global.response.BaseResponseService;
 import com.example.package404.global.response.BaseResponseServiceImpl;
 import com.example.package404.global.response.responseStatus.CommonResponseStatus;
-import com.example.package404.student.model.Dto.StudentDetailPageResponse;
-import com.example.package404.student.model.Dto.StudentDetailRegisterDto;
-import com.example.package404.student.model.Dto.StudentDetailResponseDto;
-import com.example.package404.student.model.Dto.StudentResponseDto;
+import com.example.package404.student.model.Dto.*;
 import com.example.package404.student.service.AttendanceUpdateService;
 import com.example.package404.student.service.StudentService;
 import com.example.package404.user.model.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +30,7 @@ public class StudentController {
     @Operation(summary = "학생 정보 등록", description = "학생 정보를 등록하는 기능입니다.")
     @PostMapping("/register")
     public BaseResponse<Object> register(@AuthenticationPrincipal User user, @RequestBody StudentDetailRegisterDto dto) {
-        StudentDetailResponseDto response =  studentService.register(dto, user);
+         StudentDetailResponseDto response =  studentService.register(dto, user);
 
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.CREATED);
     }
@@ -51,14 +49,42 @@ public class StudentController {
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
     }
 
+
+
+    @PostMapping("/apply")
+    public ResponseEntity<String> applyForLeave(
+//            @AuthenticationPrincipal User user,
+            @RequestBody AttendanceRequestDto attendanceRequestDto ) {
+        try {
+
+            User user = User.builder().idx(5L).build();
+            studentService.applyForLeave(attendanceRequestDto);
+            return ResponseEntity.ok("휴가 신청이 완료되었습니다.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("휴가 신청에 실패했습니다.");
+        }
+    }
+
+
+
     @Operation(summary = "학생 출결 업데이트 기능",
             description = "학생의 출결을 업데이트 하는 기능입니다. action: testStatus, perception, attendance, leaveEarly, outing, vacationLeft")
     @GetMapping("/attend/update/{action}")
-    public BaseResponse<Object> update(@AuthenticationPrincipal User user, @PathVariable String action) {
+    public void update(
+//    @AuthenticationPrincipal User user,
+    @PathVariable String action  )  {
+
+        User user = User.builder().idx(5L).build();
         StudentDetailResponseDto response = studentService.update(user, action);
 
-        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
+//        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
     }
+
+
+
+
+
 
     @Operation(summary = "학생 출결 배치 업데이트 기능",
             description = "학생들의 출결을 배치 업데이트 하는 기능입니다. action: testStatus, perception, attendance, leaveEarly, outing, vacationLeft")
@@ -66,6 +92,7 @@ public class StudentController {
     public BaseResponse<Object> updateAttendance(
             @AuthenticationPrincipal User user,
             @PathVariable String action) {
+
         attendanceUpdateService.enqueueAttendanceUpdate(user.getIdx(), action);
         return baseResponseService.getSuccessResponse("Attendance update enqueued", CommonResponseStatus.SUCCESS);
     }

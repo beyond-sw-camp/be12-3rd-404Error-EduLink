@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +25,8 @@ public class StudentResponseDto {
     private String name;
     @Schema(description = "유저 역할")
     private String role;
+    @Schema(description = "유저 역할")
+    private LocalDate birth;
 
     @Schema(description = "학생 상세 정보")
     StudentDetailResponseDto studentDetail;
@@ -35,6 +39,7 @@ public class StudentResponseDto {
                 .password(user.getPassword())
                 .name(user.getName())
                 .role(user.getRole())
+                .birth(user.getBirth())
                 .studentDetail(StudentDetailResponseDto.from(user.getStudentDetail()))
                 .build();
     }

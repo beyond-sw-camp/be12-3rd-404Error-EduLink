@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 public class UserResponseDto {
 
     @AllArgsConstructor
@@ -32,6 +34,8 @@ public class UserResponseDto {
         private String email;
         @Schema(description = "유저 이름")
         private String name;
+        @Schema(description = "유저 생일")
+        private LocalDate birth;
         @Schema(description = "유저 역할")
         private String role;
 
@@ -40,6 +44,7 @@ public class UserResponseDto {
                     .idx(entity.getIdx())
                     .email(entity.getEmail())
                     .name(entity.getName())
+                    .birth(entity.getBirth())
                     .role(entity.getRole())
                     .build();
         }

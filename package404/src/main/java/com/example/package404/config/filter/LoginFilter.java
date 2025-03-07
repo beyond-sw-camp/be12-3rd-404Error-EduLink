@@ -49,14 +49,10 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
                                             FilterChain chain, Authentication authResult) throws IOException, ServletException {
         User user = (User) authResult.getPrincipal();
 
-
         Collection<? extends GrantedAuthority> authorities = authResult.getAuthorities();
         GrantedAuthority auth = authorities.iterator().next();
         String role = auth.getAuthority();
         String token = JwtUtil.generateToken(user.getIdx(), user.getEmail(), role);
-
-        System.out.println(role+"@@@@@@@@@@@@@@@@@@@@"+token);
-        System.out.println(role+"@@@@@@@@@@@@@@@"+token);
 
         Cookie cookie = new Cookie("Authorization", token);
         cookie.setHttpOnly(true);

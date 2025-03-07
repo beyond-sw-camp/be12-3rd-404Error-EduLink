@@ -158,4 +158,6 @@ public class StudentService {
     }
 
 
+    public void applyForLeave(AttendanceRequestDto attendanceRequestDto) {
+    }
 }
