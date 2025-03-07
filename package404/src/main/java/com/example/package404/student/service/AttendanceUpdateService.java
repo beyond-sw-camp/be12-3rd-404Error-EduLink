@@ -33,7 +33,8 @@ public class AttendanceUpdateService {
         updateQueue.add(new AttendanceUpdateEvent(userId, action));
     }
 
-    //@Scheduled(fixedRate = 5000)
+
+//    @Scheduled(fixedRate = 5000)
     public void processAttendanceUpdates() {
         if (updateQueue.isEmpty()) {
             return;
