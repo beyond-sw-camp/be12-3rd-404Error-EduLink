@@ -11,6 +11,7 @@ import com.example.package404.student.model.StudentDetail;
 import com.example.package404.student.repository.StudentRepository;
 import com.example.package404.user.model.Dto.UserInsSignUpDto;
 import com.example.package404.user.model.Dto.UserResponseDto;
+import com.example.package404.user.model.Dto.UserUpdateRequestDto;
 import com.example.package404.user.model.User;
 
 import com.example.package404.user.repository.UserRepository;
@@ -141,7 +142,6 @@ public class UserService implements UserDetailsService {
         if ("MANAGER".equalsIgnoreCase(role)) {
             return UserResponseDto.BasicUserResponseDto.from(user);
         } else if ("INSTRUCTOR".equalsIgnoreCase(role)) {
-            // Retrieve instructor info directly from InstructorRepository
             Optional<Instructor> optInstructor = instructorRepository.findByUserIdx(user.getIdx());
             if (optInstructor.isPresent()) {
                 return InstructorResponseDto.from(optInstructor.get());
@@ -149,7 +149,6 @@ public class UserService implements UserDetailsService {
                 return UserResponseDto.BasicUserResponseDto.from(user);
             }
         } else if ("STUDENT".equalsIgnoreCase(role)) {
-            // Retrieve student details from StudentRepository
             Optional<StudentDetail> optStudent = studentRepository.findByStudent(user.getIdx());
             if (optStudent.isPresent()) {
                 return StudentResponseDto.from(optStudent.get());
@@ -160,4 +159,43 @@ public class UserService implements UserDetailsService {
             return UserResponseDto.BasicUserResponseDto.from(user);
         }
     }
+
+    @Transactional
+    public Object updateUserInfo(User user, UserUpdateRequestDto dto) {
+        boolean updated = false;
+
+        if (dto.getBirth() != null) {
+            user.setBirth(dto.getBirth());
+            updated = true;
+        }
+        if (dto.getPassword() != null && !dto.getPassword().isEmpty()) {
+            String encoded = passwordEncoder.encode(dto.getPassword());
+            user.setPassword(encoded);
+            updated = true;
+        }
+
+        String role = user.getRole();
+        if ("STUDENT".equalsIgnoreCase(role)) {
+            StudentDetail studentDetail = user.getStudentDetail();
+            if (studentDetail != null && dto.getAddress() != null && !dto.getAddress().isEmpty()) {
+                studentDetail.setAddress(dto.getAddress());
+                studentRepository.save(studentDetail);
+                updated = true;
+            }
+        } else if ("INSTRUCTOR".equalsIgnoreCase(role)) {
+            Instructor instructor = user.getInstructor();
+            if (instructor != null && dto.getPortfolio() != null && !dto.getPortfolio().isEmpty()) {
+                instructor.setPortfolio(dto.getPortfolio());
+                instructorRepository.save(instructor);
+                updated = true;
+            }
+        }
+
+        if (updated) {
+            userRepository.save(user);
+        }
+
+        return getUserInfo(user);
+    }
+
 }
