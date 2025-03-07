@@ -5,6 +5,7 @@ import com.example.package404.global.response.responseStatus.StudentResponseStat
 import com.example.package404.student.model.Dto.*;
 import com.example.package404.student.model.StudentDetail;
 import com.example.package404.student.repository.StudentRepository;
+import com.example.package404.user.model.Dto.UserResponseDto;
 import com.example.package404.user.model.User;
 import com.example.package404.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -50,6 +51,19 @@ public class StudentService {
 
         return StudentResponseDto.from(student);
     }
+
+    public Object readAllInfo(Long userIdx) {
+        User user = userRepository.findById(userIdx)
+                .orElseThrow(() -> new StudentException(StudentResponseStatus.STUDENT_NOT_FOUND));
+        StudentDetail studentDetail = user.getStudentDetail();
+        if (studentDetail == null) {
+            return UserResponseDto.BasicUserResponseDto.from(user);
+        }
+        return StudentResponseDto.from(studentDetail);
+    }
+
+
+
 
     public StudentDetailPageResponse list(int page, int size) {
         if (page < 0 || page+1 > studentRepository.count() || size < 0 || size > studentRepository.count()) {

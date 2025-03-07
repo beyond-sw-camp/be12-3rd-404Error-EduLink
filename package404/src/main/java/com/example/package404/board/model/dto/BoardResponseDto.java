@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Builder
 public class BoardResponseDto {
+    private Long idx;
     private String title;
     private String writer;
     private LocalDateTime createdDate;
@@ -25,6 +26,7 @@ public class BoardResponseDto {
 
     public static BoardResponseDto from(Board board) {
         return BoardResponseDto.builder()
+                .idx(board.getIdx())
                 .title(board.getTitle())
                 .writer(board.getUser().getName())
                 .createdDate(board.getCreatedDate())
