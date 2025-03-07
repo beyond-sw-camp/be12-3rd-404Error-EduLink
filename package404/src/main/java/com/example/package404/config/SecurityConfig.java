@@ -41,23 +41,23 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedOriginPatterns(List.of("http://localhost:5173"));
-        corsConfig.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        corsConfig.setAllowedHeaders(List.of("*"));
-        corsConfig.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfig);
-        return source;
-    }
+//    @Bean
+//    public CorsConfigurationSource corsConfigurationSource() {
+//        CorsConfiguration corsConfig = new CorsConfiguration();
+//        corsConfig.setAllowedOriginPatterns(List.of("http://localhost:5173"));
+//        corsConfig.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+//        corsConfig.setAllowedHeaders(List.of("*"));
+//        corsConfig.setAllowCredentials(true);
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", corsConfig);
+//        return source;
+//    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, UserService userService) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())  // CSRF 비활성화
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+//                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessHandler((request, response, authentication) -> {
@@ -76,9 +76,9 @@ public class SecurityConfig {
                                 "/swagger-ui.html", "/swagger-resources/**", "/favicon.ico").permitAll()
                         .requestMatchers("/board/**").hasAnyRole("STUDENT", "INSTRUCTOR", "MANAGER") // 게시판은 로그인한 회원이라면 모두 허용
                         .requestMatchers("/course/**").hasAnyRole("STUDENT", "INSTRUCTOR", "MANAGER") // 수업은 로그인한 회원이라면 모두 허용
-                        .requestMatchers("/student/**").hasRole("STUDENT") // 학생 기능은 학생에게만 허용
-                        .requestMatchers("/instructor/**").hasRole("INSTRUCTOR") // 강사 기능은 강사에게만 허용
-                        .requestMatchers("/manager/**").hasRole("MANAGER") // 매니저 기능은 매니저에게만 허용
+                        .requestMatchers("/student/**").hasAnyRole("STUDENT", "INSTRUCTOR", "MANAGER") // 학생 기능은 학생에게만 허용
+                        .requestMatchers("/instructor/**").hasAnyRole("INSTRUCTOR", "STUDENT", "MANGER") // 강사 기능은 강사에게만 허용
+                        .requestMatchers("/manager/**").hasAnyRole("INSTRUCTOR", "STUDENT", "MANGER") // 매니저 기능은 매니저에게만 허용
                         .anyRequest().authenticated()
                 )
                 .addFilterAt(new LoginFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class)  // 로그인 필터 추가
