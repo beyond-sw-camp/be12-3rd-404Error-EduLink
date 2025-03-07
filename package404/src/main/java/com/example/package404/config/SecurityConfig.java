@@ -77,8 +77,8 @@ public class SecurityConfig {
                         .requestMatchers("/board/**").hasAnyRole("STUDENT", "INSTRUCTOR", "MANAGER") // 게시판은 로그인한 회원이라면 모두 허용
                         .requestMatchers("/course/**").hasAnyRole("STUDENT", "INSTRUCTOR", "MANAGER") // 수업은 로그인한 회원이라면 모두 허용
                         .requestMatchers("/student/**").hasAnyRole("STUDENT", "INSTRUCTOR", "MANAGER") // 학생 기능은 학생에게만 허용
-                        .requestMatchers("/instructor/**").hasAnyRole("INSTRUCTOR", "STUDENT", "MANGER") // 강사 기능은 강사에게만 허용
-                        .requestMatchers("/manager/**").hasAnyRole("INSTRUCTOR", "STUDENT", "MANGER") // 매니저 기능은 매니저에게만 허용
+                        .requestMatchers("/instructor/**").hasAnyRole("INSTRUCTOR", "STUDENT", "MANAGER") // 강사 기능은 강사에게만 허용
+                        .requestMatchers("/manager/**").hasAnyRole("INSTRUCTOR", "STUDENT", "MANAGER") // 매니저 기능은 매니저에게만 허용
                         .anyRequest().authenticated()
                 )
                 .addFilterAt(new LoginFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class)  // 로그인 필터 추가
