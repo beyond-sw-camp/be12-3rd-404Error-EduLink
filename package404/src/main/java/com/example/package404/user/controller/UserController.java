@@ -64,7 +64,7 @@ public class UserController {
         String role = user.getRole();
         if ("MANAGER".equalsIgnoreCase(role)) {
             return baseResponseService.getSuccessResponse(
-                    UserResponseDto.SignupResponse.from(user),
+                    UserResponseDto.BasicUserResponseDto.from(user),
                     UserResponseStatus.SUCCESS
             );
         } else if ("INSTRUCTOR".equalsIgnoreCase(role)) {
