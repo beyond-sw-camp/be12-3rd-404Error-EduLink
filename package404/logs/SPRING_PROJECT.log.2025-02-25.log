@@ -1,0 +1,1812 @@
+2025-02-25 08:53:24 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h28m48s596ms919µs100ns).
+2025-02-25 08:53:30 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=9h28m48s597ms393µs300ns).
+2025-02-25 16:21:25 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 9068 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 16:21:25 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 16:21:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 16:21:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 378 ms. Found 9 JPA repository interfaces.
+2025-02-25 16:21:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 16:21:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 16:21:30 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 16:21:30 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 16:21:30 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 16:21:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4295 ms
+2025-02-25 16:21:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 16:21:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (4ms)
+2025-02-25 16:21:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 16:21:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 16:21:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 16:21:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (4ms)
+2025-02-25 16:21:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 16:21:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (1ms)
+2025-02-25 16:21:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 16:21:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 16:21:30 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 16:21:31 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 16:21:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 16:21:31 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.RuntimeException: Driver org.mariadb.jdbc.Driver claims to not accept jdbcUrl, ${MASTER_DB_URL}
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:109)
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:327)
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:113)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:91)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource.getConnection(AbstractRoutingDataSource.java:213)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:727)
+	at com.example.package404.config.DynamicRoutingDataSource$$SpringCGLIB$$0.getConnection(<generated>)
+	at org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy.checkDefaultConnectionProperties(LazyConnectionDataSourceProxy.java:212)
+	at org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy.getConnection(LazyConnectionDataSourceProxy.java:265)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.example.package404.Package404Application.main(Package404Application.java:10)
+2025-02-25 16:21:31 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 16:21:31 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@35e74e08']
+	Database driver: undefined/unknown
+	Database version: 10.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 16:21:33 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 16:21:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 16:21:33 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver org.mariadb.jdbc.Driver claims to not accept jdbcUrl, ${MASTER_DB_URL}
+2025-02-25 16:21:33 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver org.mariadb.jdbc.Driver claims to not accept jdbcUrl, ${MASTER_DB_URL}
+2025-02-25 16:21:33 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-02-25 16:21:33 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-25 16:21:33 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver org.mariadb.jdbc.Driver claims to not accept jdbcUrl, ${MASTER_DB_URL}
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.example.package404.Package404Application.main(Package404Application.java:10)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver org.mariadb.jdbc.Driver claims to not accept jdbcUrl, ${MASTER_DB_URL}
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	... 15 common frames omitted
+Caused by: java.lang.RuntimeException: Driver org.mariadb.jdbc.Driver claims to not accept jdbcUrl, ${MASTER_DB_URL}
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:109)
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:327)
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:113)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:91)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource.getConnection(AbstractRoutingDataSource.java:213)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:727)
+	at com.example.package404.config.DynamicRoutingDataSource$$SpringCGLIB$$0.getConnection(<generated>)
+	at org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy.checkDefaultConnectionProperties(LazyConnectionDataSourceProxy.java:212)
+	at org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy.getConnection(LazyConnectionDataSourceProxy.java:265)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorMariaDBDatabaseImpl.extractMetadata(SequenceInformationExtractorMariaDBDatabaseImpl.java:46)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60)
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:93)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	... 19 common frames omitted
+2025-02-25 16:24:57 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 10464 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 16:24:57 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 16:24:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 16:24:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 359 ms. Found 9 JPA repository interfaces.
+2025-02-25 16:25:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 16:25:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 16:25:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 16:25:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 16:25:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 16:25:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3469 ms
+2025-02-25 16:25:00 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 16:25:00 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (5ms)
+2025-02-25 16:25:00 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 16:25:00 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 16:25:01 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 16:25:01 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (4ms)
+2025-02-25 16:25:01 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 16:25:01 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (1ms)
+2025-02-25 16:25:01 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 16:25:01 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 16:25:01 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 16:25:01 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 16:25:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 16:25:02 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@355493bf
+2025-02-25 16:25:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 16:25:02 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 16:25:02 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@5a4464c5']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 16:25:04 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 16:25:04 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 16:25:05 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 16:25:05 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 16:25:05 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 16:25:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 16:25:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (2ms)
+2025-02-25 16:25:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 16:25:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (3ms)
+2025-02-25 16:25:05 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 16:25:05 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 16:25:06 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 16:25:06 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 16:25:06 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (0ms)
+2025-02-25 16:25:06 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (79ms)
+2025-02-25 16:25:07 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 16:25:07 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 16:25:07 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 11.104 seconds (process running for 12.949)
+2025-02-25 16:55:47 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 16:55:48 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 16:55:48 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 16:55:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 16:55:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 16:56:01 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 16152 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 16:56:01 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 16:56:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 16:56:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 438 ms. Found 9 JPA repository interfaces.
+2025-02-25 16:56:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 16:56:04 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 16:56:04 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 16:56:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 16:56:05 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 16:56:05 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3369 ms
+2025-02-25 16:56:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 16:56:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (7ms)
+2025-02-25 16:56:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 16:56:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 16:56:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 16:56:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (7ms)
+2025-02-25 16:56:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 16:56:05 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (2ms)
+2025-02-25 16:56:05 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 16:56:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 16:56:05 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 16:56:06 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 16:56:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 16:56:06 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@229cb4d8
+2025-02-25 16:56:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 16:56:06 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 16:56:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@a316f6b']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 16:56:08 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 16:56:08 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 16:56:09 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 16:56:09 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 16:56:09 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 16:56:10 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 16:56:10 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (1ms)
+2025-02-25 16:56:10 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 16:56:10 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (3ms)
+2025-02-25 16:56:10 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 16:56:10 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 16:56:10 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 16:56:10 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 16:56:10 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (0ms)
+2025-02-25 16:56:10 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (81ms)
+2025-02-25 16:56:11 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 16:56:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 16:56:11 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 10.849 seconds (process running for 12.9)
+2025-02-25 16:56:28 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25 16:56:28 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-25 16:56:28 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-02-25 16:56:29 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - register 실행 시작
+2025-02-25 16:56:29 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - register 실행 시작
+2025-02-25 16:56:29 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 시작
+2025-02-25 16:56:29 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        student_detail
+        (address, attendance, leave_early, outing, perception, test_status, user_idx, vacation_left) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-02-25 16:56:29 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [address04]
+2025-02-25 16:56:29 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [0]
+2025-02-25 16:56:29 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:INTEGER) <- [0]
+2025-02-25 16:56:29 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:INTEGER) <- [0]
+2025-02-25 16:56:29 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:INTEGER) <- [0]
+2025-02-25 16:56:29 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2025-02-25 16:56:29 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [4]
+2025-02-25 16:56:29 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:INTEGER) <- [0]
+2025-02-25 16:56:29 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 완료 (255ms)
+2025-02-25 16:56:29 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - register 실행 완료 (266ms)
+2025-02-25 16:56:29 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 16:56:29 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 16:56:29 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - register 실행 완료 (271ms)
+2025-02-25 17:10:55 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 17:10:56 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 17:10:56 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:10:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 17:10:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 17:11:07 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 5456 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 17:11:07 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 17:11:09 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 17:11:09 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 513 ms. Found 9 JPA repository interfaces.
+2025-02-25 17:11:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 17:11:11 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:11:11 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 17:11:11 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 17:11:11 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 17:11:11 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3535 ms
+2025-02-25 17:11:11 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 17:11:11 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (3ms)
+2025-02-25 17:11:11 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 17:11:11 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 17:11:11 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 17:11:11 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (4ms)
+2025-02-25 17:11:11 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 17:11:11 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (1ms)
+2025-02-25 17:11:11 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 17:11:11 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 17:11:11 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 17:11:12 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 17:11:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 17:11:12 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@598e5cb8
+2025-02-25 17:11:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 17:11:12 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 17:11:12 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@2eb1c615']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 17:11:16 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 17:11:16 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:11:17 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 17:11:17 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 17:11:18 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 17:11:19 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 17:11:19 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (2ms)
+2025-02-25 17:11:19 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 17:11:19 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (3ms)
+2025-02-25 17:11:19 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 17:11:19 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 17:11:20 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 17:11:20 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 17:11:20 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (1ms)
+2025-02-25 17:11:20 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (160ms)
+2025-02-25 17:11:20 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:11:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 17:11:21 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 14.539 seconds (process running for 16.589)
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - read 실행 시작
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - read 실행 시작
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:11:21 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.mariadb.jdbc.Connection@364520a1
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (382ms)
+2025-02-25 17:11:21 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findByStudent 실행 시작
+2025-02-25 17:11:22 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.vacation_left 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    where
+        u1_0.idx=?
+2025-02-25 17:11:22 [http-nio-8080-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-02-25 17:11:22 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findByStudent 실행 완료 (193ms)
+2025-02-25 17:11:22 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - read 실행 완료 (598ms)
+2025-02-25 17:11:22 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 17:11:22 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 17:11:22 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - read 실행 완료 (606ms)
+2025-02-25 17:34:44 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 17:34:44 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 17:34:44 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:34:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-02-25 17:34:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-02-25 17:34:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 17:34:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 17:35:50 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 792 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 17:35:50 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 17:35:51 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 17:35:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 401 ms. Found 9 JPA repository interfaces.
+2025-02-25 17:35:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 17:35:53 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:35:53 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 17:35:53 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 17:35:53 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 17:35:53 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3060 ms
+2025-02-25 17:35:53 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 17:35:53 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (4ms)
+2025-02-25 17:35:53 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 17:35:53 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 17:35:53 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 17:35:53 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (4ms)
+2025-02-25 17:35:53 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 17:35:53 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (1ms)
+2025-02-25 17:35:53 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 17:35:53 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 17:35:53 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 17:35:54 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 17:35:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 17:35:54 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@36638b59
+2025-02-25 17:35:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 17:35:54 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 17:35:54 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@45287377']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 17:35:56 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 17:35:56 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:35:57 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 17:35:57 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 17:35:57 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 17:35:57 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 17:35:57 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (2ms)
+2025-02-25 17:35:57 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 17:35:57 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (3ms)
+2025-02-25 17:35:58 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 17:35:58 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 17:35:58 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 17:35:58 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 17:35:58 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (0ms)
+2025-02-25 17:35:58 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (68ms)
+2025-02-25 17:35:59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:35:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 17:35:59 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 10.073 seconds (process running for 12.564)
+2025-02-25 17:36:15 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25 17:36:15 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-25 17:36:15 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-25 17:36:15 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleGeneralException 실행 시작
+2025-02-25 17:36:15 [http-nio-8080-exec-2] ERROR c.e.p.g.e.GlobalExceptionHandler - 예기치 못한 예외 발생: 
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource product/list.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.package404.config.filter.JwtFilter.doFilterInternal(JwtFilter.java:48)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2025-02-25 17:36:15 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 시작
+2025-02-25 17:36:15 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 완료 (1ms)
+2025-02-25 17:36:15 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleGeneralException 실행 완료 (28ms)
+2025-02-25 17:37:37 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleGeneralException 실행 시작
+2025-02-25 17:37:37 [http-nio-8080-exec-6] ERROR c.e.p.g.e.GlobalExceptionHandler - 예기치 못한 예외 발생: 
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource product/list.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.package404.config.filter.JwtFilter.doFilterInternal(JwtFilter.java:48)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2025-02-25 17:37:37 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 시작
+2025-02-25 17:37:37 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 완료 (0ms)
+2025-02-25 17:37:37 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleGeneralException 실행 완료 (3ms)
+2025-02-25 17:38:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 시작
+2025-02-25 17:38:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 시작
+2025-02-25 17:38:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 시작
+2025-02-25 17:38:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.vacation_left 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    limit
+        ?
+2025-02-25 17:38:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2025-02-25 17:38:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        count(sd1_0.idx) 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx
+2025-02-25 17:38:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 완료 (326ms)
+2025-02-25 17:38:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 완료 (338ms)
+2025-02-25 17:38:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 17:38:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (1ms)
+2025-02-25 17:38:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 완료 (342ms)
+2025-02-25 17:38:18 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 시작
+2025-02-25 17:38:18 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 시작
+2025-02-25 17:38:18 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 시작
+2025-02-25 17:38:18 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.vacation_left 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    limit
+        ?, ?
+2025-02-25 17:38:18 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2025-02-25 17:38:18 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [2]
+2025-02-25 17:38:18 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 완료 (9ms)
+2025-02-25 17:38:18 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 완료 (10ms)
+2025-02-25 17:38:18 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 17:38:18 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 17:38:18 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 완료 (12ms)
+2025-02-25 17:42:36 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 17:42:36 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 17:42:36 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:42:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 17:42:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 17:42:49 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 3092 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 17:42:49 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 17:42:50 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 17:42:50 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 451 ms. Found 9 JPA repository interfaces.
+2025-02-25 17:42:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 17:42:52 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:42:52 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 17:42:52 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 17:42:52 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 17:42:52 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3023 ms
+2025-02-25 17:42:52 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 17:42:52 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (4ms)
+2025-02-25 17:42:52 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 17:42:52 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 17:42:52 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 17:42:52 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (4ms)
+2025-02-25 17:42:52 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 17:42:52 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (2ms)
+2025-02-25 17:42:52 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 17:42:52 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 17:42:52 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 17:42:53 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 17:42:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 17:42:53 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@5dd3727c
+2025-02-25 17:42:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 17:42:53 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 17:42:53 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@33d230ce']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 17:42:55 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 17:42:55 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:42:56 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 17:42:56 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 17:42:56 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 17:42:56 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 17:42:56 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (1ms)
+2025-02-25 17:42:56 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 17:42:56 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (2ms)
+2025-02-25 17:42:57 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 17:42:57 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 17:42:57 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 17:42:57 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 17:42:57 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (0ms)
+2025-02-25 17:42:57 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (73ms)
+2025-02-25 17:42:58 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:42:58 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 17:42:58 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 10.52 seconds (process running for 12.627)
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 시작
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 시작
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:43:05 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.mariadb.jdbc.Connection@5a8e5d81
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (173ms)
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:43:05 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (8ms)
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 시작
+2025-02-25 17:43:05 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.vacation_left 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    limit
+        ?, ?
+2025-02-25 17:43:05 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2025-02-25 17:43:05 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [2]
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 완료 (69ms)
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 완료 (258ms)
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 17:43:05 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 완료 (261ms)
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 시작
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 시작
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:43:20 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (6ms)
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:43:20 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (7ms)
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 시작
+2025-02-25 17:43:20 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.vacation_left 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    limit
+        ?, ?
+2025-02-25 17:43:20 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [6]
+2025-02-25 17:43:20 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [2]
+2025-02-25 17:43:20 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(sd1_0.idx) 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 완료 (13ms)
+2025-02-25 17:43:20 [http-nio-8080-exec-3] WARN  c.example.package404.aop.SimpleAop - WARN: StudentService - list 예외 발생: 학생 정보를 찾을 수 없습니다.
+2025-02-25 17:43:20 [http-nio-8080-exec-3] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - list 예외 발생: 학생 정보를 찾을 수 없습니다.
+2025-02-25 17:43:20 [http-nio-8080-exec-3] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - list 실행 중 예외 발생: 학생 정보를 찾을 수 없습니다.
+2025-02-25 17:43:20 [http-nio-8080-exec-3] WARN  c.example.package404.aop.SimpleAop - WARN: StudentController - list 예외 발생: 학생 정보를 찾을 수 없습니다.
+2025-02-25 17:43:20 [http-nio-8080-exec-3] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - list 예외 발생: 학생 정보를 찾을 수 없습니다.
+2025-02-25 17:43:20 [http-nio-8080-exec-3] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - list 실행 중 예외 발생: 학생 정보를 찾을 수 없습니다.
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 시작
+2025-02-25 17:43:20 [http-nio-8080-exec-3] ERROR c.e.p.g.e.GlobalExceptionHandler - BaseException 발생: 학생 정보를 찾을 수 없습니다.
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 시작
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 완료 (0ms)
+2025-02-25 17:43:20 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 완료 (3ms)
+2025-02-25 17:43:32 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 시작
+2025-02-25 17:43:32 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 시작
+2025-02-25 17:43:32 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:43:32 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:43:32 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (6ms)
+2025-02-25 17:43:32 [http-nio-8080-exec-5] WARN  c.example.package404.aop.SimpleAop - WARN: StudentService - list 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:32 [http-nio-8080-exec-5] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - list 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:32 [http-nio-8080-exec-5] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - list 실행 중 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:32 [http-nio-8080-exec-5] WARN  c.example.package404.aop.SimpleAop - WARN: StudentController - list 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:32 [http-nio-8080-exec-5] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - list 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:32 [http-nio-8080-exec-5] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - list 실행 중 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:32 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 시작
+2025-02-25 17:43:32 [http-nio-8080-exec-5] ERROR c.e.p.g.e.GlobalExceptionHandler - BaseException 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:32 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 시작
+2025-02-25 17:43:32 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 완료 (0ms)
+2025-02-25 17:43:32 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 완료 (0ms)
+2025-02-25 17:43:49 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 시작
+2025-02-25 17:43:49 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 시작
+2025-02-25 17:43:49 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:43:49 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:43:49 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (6ms)
+2025-02-25 17:43:49 [http-nio-8080-exec-6] WARN  c.example.package404.aop.SimpleAop - WARN: StudentService - list 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:49 [http-nio-8080-exec-6] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - list 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:49 [http-nio-8080-exec-6] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - list 실행 중 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:49 [http-nio-8080-exec-6] WARN  c.example.package404.aop.SimpleAop - WARN: StudentController - list 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:49 [http-nio-8080-exec-6] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - list 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:49 [http-nio-8080-exec-6] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - list 실행 중 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:49 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 시작
+2025-02-25 17:43:49 [http-nio-8080-exec-6] ERROR c.e.p.g.e.GlobalExceptionHandler - BaseException 발생: 잘못된 학생 ID입니다.
+2025-02-25 17:43:49 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 시작
+2025-02-25 17:43:49 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 완료 (0ms)
+2025-02-25 17:43:49 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 완료 (0ms)
+2025-02-25 17:44:48 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 17:44:49 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 17:44:49 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:44:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-02-25 17:44:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-02-25 17:44:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 17:44:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 17:45:04 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 25096 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 17:45:04 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 17:45:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 17:45:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 331 ms. Found 9 JPA repository interfaces.
+2025-02-25 17:45:07 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 17:45:07 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:45:07 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 17:45:07 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 17:45:07 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 17:45:07 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3204 ms
+2025-02-25 17:45:07 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 17:45:07 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (4ms)
+2025-02-25 17:45:07 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 17:45:07 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 17:45:07 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 17:45:07 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (4ms)
+2025-02-25 17:45:07 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 17:45:07 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (1ms)
+2025-02-25 17:45:08 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 17:45:08 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 17:45:08 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 17:45:08 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 17:45:08 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 17:45:09 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@4331be30
+2025-02-25 17:45:09 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 17:45:09 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 17:45:09 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@15a8cebd']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 17:45:10 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 17:45:11 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:45:11 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 17:45:11 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 17:45:12 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 17:45:12 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 17:45:12 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (2ms)
+2025-02-25 17:45:12 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 17:45:12 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (3ms)
+2025-02-25 17:45:12 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 17:45:12 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 17:45:13 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 17:45:13 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 17:45:13 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (0ms)
+2025-02-25 17:45:13 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (74ms)
+2025-02-25 17:45:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:45:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 17:45:13 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 11.23 seconds (process running for 14.031)
+2025-02-25 17:46:27 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 17:46:28 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 17:46:28 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:46:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 17:46:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 17:46:36 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 11688 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 17:46:36 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 17:46:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 17:46:38 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 668 ms. Found 9 JPA repository interfaces.
+2025-02-25 17:46:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 17:46:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:46:39 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 17:46:39 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 17:46:39 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 17:46:39 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3068 ms
+2025-02-25 17:46:39 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 17:46:39 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (4ms)
+2025-02-25 17:46:39 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 17:46:39 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 17:46:39 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 17:46:39 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (4ms)
+2025-02-25 17:46:39 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 17:46:39 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (1ms)
+2025-02-25 17:46:39 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 17:46:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 17:46:39 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 17:46:40 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 17:46:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 17:46:40 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@77998ea7
+2025-02-25 17:46:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 17:46:40 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 17:46:40 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@26a4f9ed']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 17:46:43 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 17:46:43 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:46:44 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 17:46:44 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 17:46:45 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 17:46:46 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 17:46:46 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (3ms)
+2025-02-25 17:46:46 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 17:46:46 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (5ms)
+2025-02-25 17:46:46 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 17:46:46 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 17:46:46 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 17:46:47 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 17:46:47 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (0ms)
+2025-02-25 17:46:47 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (118ms)
+2025-02-25 17:46:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 17:46:47 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 17:46:47 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 12.697 seconds (process running for 14.26)
+2025-02-25 17:46:48 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 17:46:48 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:46:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 17:46:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 17:46:56 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 25132 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 17:46:56 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 17:46:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 17:46:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 413 ms. Found 9 JPA repository interfaces.
+2025-02-25 17:46:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 17:46:59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:46:59 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 17:46:59 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 17:46:59 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 17:46:59 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2855 ms
+2025-02-25 17:46:59 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 17:46:59 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (3ms)
+2025-02-25 17:46:59 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 17:46:59 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 17:46:59 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 17:46:59 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (3ms)
+2025-02-25 17:46:59 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 17:46:59 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (1ms)
+2025-02-25 17:46:59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 17:46:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 17:46:59 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 17:47:00 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 17:47:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 17:47:00 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@1c135f63
+2025-02-25 17:47:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 17:47:00 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 17:47:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@7ddeb27f']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 17:47:02 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 17:47:02 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:47:03 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 17:47:03 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 17:47:03 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 17:47:04 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 17:47:04 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (2ms)
+2025-02-25 17:47:04 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 17:47:04 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (3ms)
+2025-02-25 17:47:04 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 17:47:04 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 17:47:04 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 17:47:04 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 17:47:04 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (0ms)
+2025-02-25 17:47:04 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (80ms)
+2025-02-25 17:47:05 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:47:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 17:47:05 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 10.014 seconds (process running for 11.607)
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 시작
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 시작
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:47:28 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.mariadb.jdbc.Connection@79d7b22f
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (173ms)
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:47:28 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (5ms)
+2025-02-25 17:47:28 [http-nio-8080-exec-3] WARN  c.example.package404.aop.SimpleAop - WARN: StudentService - list 예외 발생: 잘못된 페이지 요청입니다. page, size를 확인해주세요.
+2025-02-25 17:47:28 [http-nio-8080-exec-3] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - list 예외 발생: 잘못된 페이지 요청입니다. page, size를 확인해주세요.
+2025-02-25 17:47:28 [http-nio-8080-exec-3] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - list 실행 중 예외 발생: 잘못된 페이지 요청입니다. page, size를 확인해주세요.
+2025-02-25 17:47:28 [http-nio-8080-exec-3] WARN  c.example.package404.aop.SimpleAop - WARN: StudentController - list 예외 발생: 잘못된 페이지 요청입니다. page, size를 확인해주세요.
+2025-02-25 17:47:28 [http-nio-8080-exec-3] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - list 예외 발생: 잘못된 페이지 요청입니다. page, size를 확인해주세요.
+2025-02-25 17:47:28 [http-nio-8080-exec-3] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - list 실행 중 예외 발생: 잘못된 페이지 요청입니다. page, size를 확인해주세요.
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 시작
+2025-02-25 17:47:28 [http-nio-8080-exec-3] ERROR c.e.p.g.e.GlobalExceptionHandler - BaseException 발생: 잘못된 페이지 요청입니다. page, size를 확인해주세요.
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 시작
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 완료 (0ms)
+2025-02-25 17:47:28 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 완료 (7ms)
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 시작
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 시작
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:47:36 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (6ms)
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:47:36 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (5ms)
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 시작
+2025-02-25 17:47:36 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.vacation_left 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    limit
+        ?
+2025-02-25 17:47:36 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [3]
+2025-02-25 17:47:36 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count(sd1_0.idx) 
+    from
+        student_detail sd1_0 
+    join
+        user u1_0 
+            on u1_0.idx=sd1_0.user_idx
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findAllStudents 실행 완료 (195ms)
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - list 실행 완료 (231ms)
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 17:47:36 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - list 실행 완료 (242ms)
+2025-02-25 17:59:00 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 17:59:00 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 17:59:01 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:59:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-02-25 17:59:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-02-25 17:59:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 17:59:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 17:59:16 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 17500 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 17:59:16 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 17:59:18 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 17:59:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 398 ms. Found 9 JPA repository interfaces.
+2025-02-25 17:59:20 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 17:59:20 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:59:20 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 17:59:20 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 17:59:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 17:59:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4115 ms
+2025-02-25 17:59:21 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 17:59:21 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (14ms)
+2025-02-25 17:59:21 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 17:59:21 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 17:59:21 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 17:59:21 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (8ms)
+2025-02-25 17:59:21 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 17:59:21 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (3ms)
+2025-02-25 17:59:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 17:59:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 17:59:22 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 17:59:23 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 17:59:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 17:59:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@474619d9
+2025-02-25 17:59:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 17:59:23 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 17:59:23 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@4e17442f']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 17:59:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 17:59:27 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 17:59:28 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 17:59:28 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 17:59:28 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 17:59:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 17:59:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (2ms)
+2025-02-25 17:59:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 17:59:30 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (8ms)
+2025-02-25 17:59:30 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 17:59:30 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 17:59:31 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 17:59:31 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 17:59:31 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (1ms)
+2025-02-25 17:59:31 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (195ms)
+2025-02-25 17:59:32 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 17:59:32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 17:59:32 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 17.476 seconds (process running for 20.626)
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 시작
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 시작
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:59:36 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.mariadb.jdbc.Connection@13be229f
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (252ms)
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 시작
+2025-02-25 17:59:36 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        sd1_0.vacation_left 
+    from
+        user u1_0 
+    left join
+        student_detail sd1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    where
+        u1_0.idx=?
+2025-02-25 17:59:36 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-02-25 17:59:36 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 완료 (105ms)
+2025-02-25 17:59:37 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 시작
+2025-02-25 17:59:37 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 완료 (5ms)
+2025-02-25 17:59:37 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 시작
+2025-02-25 17:59:37 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    update
+        student_detail 
+    set
+        address=?,
+        attendance=?,
+        leave_early=?,
+        outing=?,
+        perception=?,
+        test_status=?,
+        user_idx=?,
+        vacation_left=? 
+    where
+        idx=?
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [address2]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [4]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:INTEGER) <- [0]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:INTEGER) <- [0]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:INTEGER) <- [3]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [2]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:INTEGER) <- [1]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:BIGINT) <- [2]
+2025-02-25 17:59:37 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 완료 (129ms)
+2025-02-25 17:59:37 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 완료 (506ms)
+2025-02-25 17:59:37 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 17:59:37 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 17:59:37 [http-nio-8080-exec-2] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 완료 (511ms)
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 시작
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 시작
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:59:47 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (9ms)
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 시작
+2025-02-25 17:59:47 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        sd1_0.vacation_left 
+    from
+        user u1_0 
+    left join
+        student_detail sd1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    where
+        u1_0.idx=?
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 완료 (9ms)
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 시작
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 완료 (2ms)
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 시작
+2025-02-25 17:59:47 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    update
+        student_detail 
+    set
+        address=?,
+        attendance=?,
+        leave_early=?,
+        outing=?,
+        perception=?,
+        test_status=?,
+        user_idx=?,
+        vacation_left=? 
+    where
+        idx=?
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [address2]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [4]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:INTEGER) <- [0]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:INTEGER) <- [0]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:INTEGER) <- [3]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [2]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:INTEGER) <- [0]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:BIGINT) <- [2]
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 완료 (8ms)
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 완료 (32ms)
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 17:59:47 [http-nio-8080-exec-3] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 완료 (35ms)
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 시작
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 시작
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 17:59:50 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (4ms)
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 시작
+2025-02-25 17:59:50 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        sd1_0.vacation_left 
+    from
+        user u1_0 
+    left join
+        student_detail sd1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    where
+        u1_0.idx=?
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 완료 (10ms)
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 시작
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 완료 (2ms)
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 시작
+2025-02-25 17:59:50 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    update
+        student_detail 
+    set
+        address=?,
+        attendance=?,
+        leave_early=?,
+        outing=?,
+        perception=?,
+        test_status=?,
+        user_idx=?,
+        vacation_left=? 
+    where
+        idx=?
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [address2]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [4]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:INTEGER) <- [0]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:INTEGER) <- [0]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:INTEGER) <- [3]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [2]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:INTEGER) <- [-1]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:BIGINT) <- [2]
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 완료 (6ms)
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 완료 (26ms)
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 17:59:50 [http-nio-8080-exec-4] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 완료 (26ms)
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 시작
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 시작
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 18:00:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (7ms)
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 시작
+2025-02-25 18:00:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        sd1_0.vacation_left 
+    from
+        user u1_0 
+    left join
+        student_detail sd1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    where
+        u1_0.idx=?
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 완료 (7ms)
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 시작
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 완료 (2ms)
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 시작
+2025-02-25 18:00:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    update
+        student_detail 
+    set
+        address=?,
+        attendance=?,
+        leave_early=?,
+        outing=?,
+        perception=?,
+        test_status=?,
+        user_idx=?,
+        vacation_left=? 
+    where
+        idx=?
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [address2]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [4]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:INTEGER) <- [0]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:INTEGER) <- [1]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:INTEGER) <- [3]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [2]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:INTEGER) <- [-1]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:BIGINT) <- [2]
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 완료 (8ms)
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 완료 (26ms)
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 18:00:00 [http-nio-8080-exec-5] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 완료 (27ms)
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 시작
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 시작
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 18:00:04 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (6ms)
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 시작
+2025-02-25 18:00:04 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        sd1_0.vacation_left 
+    from
+        user u1_0 
+    left join
+        student_detail sd1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    where
+        u1_0.idx=?
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 완료 (7ms)
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 시작
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 완료 (3ms)
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 시작
+2025-02-25 18:00:04 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    update
+        student_detail 
+    set
+        address=?,
+        attendance=?,
+        leave_early=?,
+        outing=?,
+        perception=?,
+        test_status=?,
+        user_idx=?,
+        vacation_left=? 
+    where
+        idx=?
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [address2]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [4]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:INTEGER) <- [0]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:INTEGER) <- [2]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:INTEGER) <- [3]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [2]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:INTEGER) <- [-1]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:BIGINT) <- [2]
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 완료 (7ms)
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 완료 (26ms)
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 18:00:04 [http-nio-8080-exec-6] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 완료 (27ms)
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 시작
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 시작
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 18:00:05 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (6ms)
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 시작
+2025-02-25 18:00:05 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        sd1_0.vacation_left 
+    from
+        user u1_0 
+    left join
+        student_detail sd1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    where
+        u1_0.idx=?
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 완료 (7ms)
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 시작
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 완료 (3ms)
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 시작
+2025-02-25 18:00:05 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    update
+        student_detail 
+    set
+        address=?,
+        attendance=?,
+        leave_early=?,
+        outing=?,
+        perception=?,
+        test_status=?,
+        user_idx=?,
+        vacation_left=? 
+    where
+        idx=?
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [address2]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [4]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:INTEGER) <- [0]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:INTEGER) <- [3]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:INTEGER) <- [3]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [2]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:INTEGER) <- [-1]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:BIGINT) <- [2]
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - save 실행 완료 (7ms)
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 완료 (26ms)
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 시작
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getSuccessResponse 실행 완료 (0ms)
+2025-02-25 18:00:05 [http-nio-8080-exec-7] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 완료 (26ms)
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 시작
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 시작
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 18:00:28 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (6ms)
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 시작
+2025-02-25 18:00:28 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.idx,
+        u1_0.birth,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        sd1_0.idx,
+        sd1_0.address,
+        sd1_0.attendance,
+        sd1_0.leave_early,
+        sd1_0.outing,
+        sd1_0.perception,
+        sd1_0.test_status,
+        sd1_0.vacation_left 
+    from
+        user u1_0 
+    left join
+        student_detail sd1_0 
+            on u1_0.idx=sd1_0.user_idx 
+    where
+        u1_0.idx=?
+2025-02-25 18:00:28 [http-nio-8080-exec-8] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [2]
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy146 - findById 실행 완료 (5ms)
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 시작
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - findById 실행 완료 (1ms)
+2025-02-25 18:00:28 [http-nio-8080-exec-8] WARN  c.example.package404.aop.SimpleAop - WARN: StudentService - update 예외 발생: 잘못된 업데이트 요청입니다. action 값을 확인해주세요.
+2025-02-25 18:00:28 [http-nio-8080-exec-8] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - update 예외 발생: 잘못된 업데이트 요청입니다. action 값을 확인해주세요.
+2025-02-25 18:00:28 [http-nio-8080-exec-8] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - update 실행 중 예외 발생: 잘못된 업데이트 요청입니다. action 값을 확인해주세요.
+2025-02-25 18:00:28 [http-nio-8080-exec-8] WARN  c.example.package404.aop.SimpleAop - WARN: StudentController - update 예외 발생: 잘못된 업데이트 요청입니다. action 값을 확인해주세요.
+2025-02-25 18:00:28 [http-nio-8080-exec-8] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - update 예외 발생: 잘못된 업데이트 요청입니다. action 값을 확인해주세요.
+2025-02-25 18:00:28 [http-nio-8080-exec-8] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - update 실행 중 예외 발생: 잘못된 업데이트 요청입니다. action 값을 확인해주세요.
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 시작
+2025-02-25 18:00:28 [http-nio-8080-exec-8] ERROR c.e.p.g.e.GlobalExceptionHandler - BaseException 발생: 잘못된 업데이트 요청입니다. action 값을 확인해주세요.
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 시작
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 완료 (0ms)
+2025-02-25 18:00:28 [http-nio-8080-exec-8] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 완료 (2ms)
+2025-02-25 18:00:38 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25 18:00:39 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-25 18:00:39 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 18:00:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-02-25 18:00:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-02-25 18:00:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-25 18:00:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-25 18:00:47 [main] INFO  c.e.package404.Package404Application - Starting Package404Application using Java 17.0.2 with PID 23192 (C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404\build\classes\java\main started by ms0 in C:\Users\ms0\Desktop\backend\git project\be12-3rd-Spring\package404)
+2025-02-25 18:00:47 [main] INFO  c.e.package404.Package404Application - No active profile set, falling back to 1 default profile: "default"
+2025-02-25 18:00:50 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-25 18:00:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1038 ms. Found 9 JPA repository interfaces.
+2025-02-25 18:00:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-25 18:00:54 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-25 18:00:54 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-25 18:00:54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25 18:00:55 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-25 18:00:55 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7849 ms
+2025-02-25 18:00:55 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 시작
+2025-02-25 18:00:55 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - masterDataSource 실행 완료 (7ms)
+2025-02-25 18:00:55 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 시작
+2025-02-25 18:00:55 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - slaveDataSource 실행 완료 (0ms)
+2025-02-25 18:00:55 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 시작
+2025-02-25 18:00:55 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - routingDataSource 실행 완료 (7ms)
+2025-02-25 18:00:55 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 시작
+2025-02-25 18:00:55 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - dataSource 실행 완료 (2ms)
+2025-02-25 18:00:55 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-25 18:00:55 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-25 18:00:56 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-25 18:00:56 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-25 18:00:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-25 18:00:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@86377d5
+2025-02-25 18:00:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-25 18:00:57 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-25 18:00:57 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy@1894fa9f']
+	Database driver: undefined/unknown
+	Database version: 10.6.18
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-25 18:00:59 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-25 18:00:59 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-25 18:01:00 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static java.lang.String com.example.package404.utils.JwtUtil.secretKey
+2025-02-25 18:01:00 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static long com.example.package404.utils.JwtUtil.expirationTime
+2025-02-25 18:01:00 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-25 18:01:00 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 시작
+2025-02-25 18:01:00 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - passwordEncoder 실행 완료 (2ms)
+2025-02-25 18:01:00 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 시작
+2025-02-25 18:01:00 [main] INFO  c.example.package404.aop.SimpleAop - INFO: DataSourceConfig$$SpringCGLIB$$0 - transactionManager 실행 완료 (2ms)
+2025-02-25 18:01:00 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-25 18:01:00 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-02-25 18:01:01 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 시작
+2025-02-25 18:01:01 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 시작
+2025-02-25 18:01:01 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - authenticationManager 실행 완료 (0ms)
+2025-02-25 18:01:01 [main] INFO  c.example.package404.aop.SimpleAop - INFO: SecurityConfig$$SpringCGLIB$$0 - securityFilterChain 실행 완료 (73ms)
+2025-02-25 18:01:02 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-25 18:01:02 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-25 18:01:02 [main] INFO  c.e.package404.Package404Application - Started Package404Application in 16.301 seconds (process running for 17.909)
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentController - update 실행 시작
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: StudentService - update 실행 시작
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 시작
+2025-02-25 18:01:09 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        student_detail sd1_0
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.mariadb.jdbc.Connection@12529935
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: $Proxy145 - count 실행 완료 (180ms)
+2025-02-25 18:01:09 [http-nio-8080-exec-1] WARN  c.example.package404.aop.SimpleAop - WARN: StudentService - update 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 18:01:09 [http-nio-8080-exec-1] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - update 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 18:01:09 [http-nio-8080-exec-1] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentService - update 실행 중 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 18:01:09 [http-nio-8080-exec-1] WARN  c.example.package404.aop.SimpleAop - WARN: StudentController - update 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 18:01:09 [http-nio-8080-exec-1] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - update 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 18:01:09 [http-nio-8080-exec-1] ERROR c.example.package404.aop.SimpleAop - ERROR: StudentController - update 실행 중 예외 발생: 잘못된 학생 ID입니다.
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 시작
+2025-02-25 18:01:09 [http-nio-8080-exec-1] ERROR c.e.p.g.e.GlobalExceptionHandler - BaseException 발생: 잘못된 학생 ID입니다.
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 시작
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: BaseResponseServiceImpl - getFailureResponse 실행 완료 (1ms)
+2025-02-25 18:01:09 [http-nio-8080-exec-1] INFO  c.example.package404.aop.SimpleAop - INFO: GlobalExceptionHandler - handleBaseException 실행 완료 (19ms)
+2025-02-25 19:02:37 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m8s861ms647µs100ns).
+2025-02-25 19:02:49 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=40m8s853ms730µs200ns).
