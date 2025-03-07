@@ -5,12 +5,12 @@ import com.example.package404.global.response.BaseResponseServiceImpl;
 import com.example.package404.global.response.responseStatus.CommonResponseStatus;
 import com.example.package404.global.response.responseStatus.UserResponseStatus;
 import com.example.package404.user.model.Dto.UserInsSignUpDto;
+import com.example.package404.user.model.Dto.UserUpdateRequestDto;
 import com.example.package404.user.model.User;
 import com.example.package404.user.service.UserService;
 import com.example.package404.user.model.Dto.UserRequestDto;
 import com.example.package404.user.model.Dto.UserResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -53,4 +53,16 @@ public class UserController {
         Object userInfo = userService.getUserInfo(user);
         return baseResponseService.getSuccessResponse(userInfo, CommonResponseStatus.SUCCESS);
     }
- }
+
+    @Operation(summary = "회원정보 수정", description = "로그인한 사용자의 정보를 수정합니다. 기본 정보(생일, 비밀번호)와 역할에 따른 추가 정보(학생의 경우 주소, 강사의 경우 포트폴리오)를 업데이트합니다.")
+    @PutMapping("/update")
+    public BaseResponse<?> updateUserInfo(@AuthenticationPrincipal User user,
+                                          @RequestBody UserUpdateRequestDto dto) {
+        if (user == null) {
+            throw new UsernameNotFoundException("로그인한 사용자의 정보가 없습니다.");
+        }
+        Object updatedInfo = userService.updateUserInfo(user, dto);
+        return baseResponseService.getSuccessResponse(updatedInfo, CommonResponseStatus.SUCCESS);
+    }
+
+}
