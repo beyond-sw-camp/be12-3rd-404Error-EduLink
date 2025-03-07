@@ -35,12 +35,12 @@ public class InstructorController {
 
 
     // Todo n+1 처리해야함
-    @Operation(summary = "강사 정보 조회", description = "자기 정보를 조회하는 기능입니다.")
-    @GetMapping("/edit")
-    public BaseResponse<InstructorResponseDto> getInstructor(@AuthenticationPrincipal User user) {
-        InstructorResponseDto response = instructorService.getInstructor(user.getIdx());
-        return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
-    }
+//    @Operation(summary = "강사 정보 조회", description = "자기 정보를 조회하는 기능입니다.")
+//    @GetMapping("/edit")
+//    public BaseResponse<InstructorResponseDto> getInstructor(@AuthenticationPrincipal User user) {
+//        InstructorResponseDto response = instructorService.getInstructor(user.getIdx());
+//        return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
+//    }
 
     //Todo n+1 처리해야함 그리고 강사 정보 업데이트 기능 이상
     @Operation(summary = "강사 정보 수정", description = "강사의 개인 정보를 수정하는 기능입니다.")
@@ -50,12 +50,14 @@ public class InstructorController {
         return baseResponseService.getSuccessResponse(InstructorResponseStatus.SUCCESS);
     }
 
-    // 모든 강사 정보 조회
-    @Operation(summary = "모든 강사 정보 조회", description = "모든 강사의 정보를 조회하는 기능입니다.")
-    @GetMapping("/instructors")
-    public BaseResponse<List<InstructorResponseDto>> getAllInstructorInfo() {
-        List<InstructorResponseDto> responseDtoList = instructorService.instructor_list2();
-        return baseResponseService.getSuccessResponse(responseDtoList, InstructorResponseStatus.SUCCESS);
-    }
+//    // 모든 강사 정보 조회
+//    @Operation(summary = "모든 강사 정보 조회", description = "모든 강사의 정보를 조회하는 기능입니다.")
+//    @GetMapping("/instructors")
+//    public BaseResponse<List<InstructorResponseDto>> getAllInstructorInfo() {
+//        List<InstructorResponseDto> responseDtoList = instructorService.instructor_list2();
+//        return baseResponseService.getSuccessResponse(responseDtoList, InstructorResponseStatus.SUCCESS);
+//    }
+//
+
 
 }

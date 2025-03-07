@@ -64,7 +64,6 @@ public class StudentService {
 
 
 
-
     public StudentDetailPageResponse list(int page, int size) {
         if (page < 0 || page+1 > studentRepository.count() || size < 0 || size > studentRepository.count()) {
             throw new StudentException(StudentResponseStatus.INVALID_PAGE);
@@ -75,7 +74,6 @@ public class StudentService {
         }
         return StudentDetailPageResponse.from(studentList);
     }
-
     public StudentDetailResponseDto update(User user, String action) {
         if (user.getIdx() == null || user.getIdx() < 0) {
             throw new StudentException(StudentResponseStatus.INVALID_STUDENT_ID);
@@ -159,5 +157,6 @@ public class StudentService {
 
 
     public void applyForLeave(AttendanceRequestDto attendanceRequestDto) {
+
     }
 }
