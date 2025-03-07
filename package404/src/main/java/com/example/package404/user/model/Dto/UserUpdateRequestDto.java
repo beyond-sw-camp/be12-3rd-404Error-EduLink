@@ -18,4 +18,7 @@ public class UserUpdateRequestDto {
 
     @Schema(description = "강사의 경우 새로운 포트폴리오", example = "Updated portfolio content")
     private String portfolio;
+
+    @Schema(description = "강사의 경우 새로운 경력", example = "Updated record content")
+    private String record;
 }

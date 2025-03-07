@@ -189,6 +189,11 @@ public class UserService implements UserDetailsService {
                 instructorRepository.save(instructor);
                 updated = true;
             }
+            if (instructor != null && dto.getRecord() != null && !dto.getRecord().isEmpty()) {
+                instructor.setRecord(dto.getRecord());
+                instructorRepository.save(instructor);
+                updated = true;
+            }
         }
 
         if (updated) {
