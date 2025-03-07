@@ -30,7 +30,7 @@ public class StudentController {
     @Operation(summary = "학생 정보 등록", description = "학생 정보를 등록하는 기능입니다.")
     @PostMapping("/register")
     public BaseResponse<Object> register(@AuthenticationPrincipal User user, @RequestBody StudentDetailRegisterDto dto) {
-         StudentDetailResponseDto response =  studentService.register(dto, user);
+        StudentDetailResponseDto response = studentService.register(dto, user);
 
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.CREATED);
     }
@@ -50,11 +50,18 @@ public class StudentController {
     }
 
 
+    @Operation(summary = "학생 출결 체크 기능", description = "학생의 상세 정보를 조회하는 기능입니다.")
+    @GetMapping("/getStudentcheck")
+    public BaseResponse<StudentDetailResponseDto> read(@AuthenticationPrincipal User user) {
+        StudentDetailResponseDto response = studentService.read1(user.getIdx());
+        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
+    }
+
 
     @PostMapping("/apply")
     public ResponseEntity<String> applyForLeave(
 //            @AuthenticationPrincipal User user,
-            @RequestBody AttendanceRequestDto attendanceRequestDto ) {
+            @RequestBody AttendanceRequestDto attendanceRequestDto) {
         try {
 
             User user = User.builder().idx(5L).build();
@@ -67,23 +74,16 @@ public class StudentController {
     }
 
 
-
     @Operation(summary = "학생 출결 업데이트 기능",
             description = "학생의 출결을 업데이트 하는 기능입니다. action: testStatus, perception, attendance, leaveEarly, outing, vacationLeft")
     @GetMapping("/attend/update/{action}")
     public void update(
-//    @AuthenticationPrincipal User user,
-    @PathVariable String action  )  {
-
-        User user = User.builder().idx(5L).build();
+            @AuthenticationPrincipal User user,
+            @PathVariable String action) {
         StudentDetailResponseDto response = studentService.update(user, action);
 
 //        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
     }
-
-
-
-
 
 
     @Operation(summary = "학생 출결 배치 업데이트 기능",

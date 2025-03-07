@@ -159,4 +159,17 @@ public class StudentService {
     public void applyForLeave(AttendanceRequestDto attendanceRequestDto) {
 
     }
+
+    public StudentDetailResponseDto read1(Long idx) {
+        if (idx == null || idx < 0) {
+            throw new StudentException(StudentResponseStatus.INVALID_STUDENT_ID);
+        }
+
+        StudentDetail student = studentRepository.findByStudent(idx).orElseThrow();
+        if (student == null) {
+            throw new StudentException(StudentResponseStatus.STUDENT_NOT_FOUND);
+        }
+
+        return StudentDetailResponseDto.from(student);
+    }
 }
