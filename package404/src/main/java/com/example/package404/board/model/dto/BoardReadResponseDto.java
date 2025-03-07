@@ -4,6 +4,7 @@ import com.example.package404.board.model.Board;
 import com.example.package404.comment.model.Comment;
 import com.example.package404.comment.model.dto.CommentReadResponseDto;
 import com.example.package404.comment.model.dto.CommentResponseDto;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,14 +19,19 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoardReadResponseDto {
+    @Schema(description = "게시글의 제목", example = "게시글 제목 입니다.")
     private String title;
+    @Schema(description = "게시글의 내용", example = "게시글 내용 입니다.")
     private String content;
+    @Schema(description = "게시글의 작성자", example = "작성자01")
     private String writer;
+    @Schema(description = "게시글이 작성된 시간", example = "2025-03-05")
     private LocalDateTime createdDate;
+    @Schema(description = "게시글이 수정된 시간", example = "2025-03-06")
     private LocalDateTime modifiedDate;
-
+    @Schema(description = "게시글에 첨부된 파일의 주소", example = "")
     private List<String> imageUrls;
-
+    @Schema(description = "게시글에 작성된 댓글들", example = "")
     private List<CommentReadResponseDto> comments;
 
     public static BoardReadResponseDto from(Board board) {

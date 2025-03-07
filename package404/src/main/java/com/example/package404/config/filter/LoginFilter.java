@@ -56,7 +56,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         Cookie cookie = new Cookie("Authorization", token);
         cookie.setHttpOnly(true);
-        cookie.setSecure(true);
+//        cookie.setSecure(true);
         cookie.setPath("/");
         cookie.setMaxAge(3600);
 
@@ -64,8 +64,8 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         response.setContentType("application/json;charset=UTF-8");
         response.setStatus(HttpServletResponse.SC_OK);
         String jsonResponse = String.format(
-                "{\"token\": \"%s\", \"role\": \"%s\", \"email\": \"%s\"}",
-                token, role, user.getEmail()
+                "{\"token\": \"%s\", \"role\": \"%s\", \"email\": \"%s\", \"name\": \"%s\"}",
+                token, role, user.getEmail(), user.getName()
         );
         response.getOutputStream().write(jsonResponse.getBytes(StandardCharsets.UTF_8));
     }
