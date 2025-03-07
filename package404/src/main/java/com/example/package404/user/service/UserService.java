@@ -2,7 +2,13 @@ package com.example.package404.user.service;
 
 import com.example.package404.global.exception.UserException;
 import com.example.package404.global.response.responseStatus.UserResponseStatus;
+import com.example.package404.instructor.model.Instructor;
 import com.example.package404.instructor.model.dto.req.UpdateUserInstructorDto;
+import com.example.package404.instructor.model.dto.res.InstructorResponseDto;
+import com.example.package404.instructor.repository.InstructorRepository;
+import com.example.package404.student.model.Dto.StudentResponseDto;
+import com.example.package404.student.model.StudentDetail;
+import com.example.package404.student.repository.StudentRepository;
 import com.example.package404.user.model.Dto.UserInsSignUpDto;
 import com.example.package404.user.model.Dto.UserResponseDto;
 import com.example.package404.user.model.User;
@@ -18,13 +24,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Pattern;
 
 @RequiredArgsConstructor
 @Service
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
+    private final InstructorRepository instructorRepository;
+    private final StudentRepository studentRepository;
     private final PasswordEncoder passwordEncoder;
+
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
     private static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
 
@@ -120,5 +130,34 @@ public class UserService implements UserDetailsService {
 
     public List<User> findUsersByRoleWithInstructor() {
         return userRepository.findUsersWithInstructorByRole("INSTRUCTOR");
+    }
+
+    @Transactional(readOnly = true)
+    public Object getUserInfo(User user) {
+        if (user == null) {
+            throw new UsernameNotFoundException("로그인한 사용자가 없습니다.");
+        }
+        String role = user.getRole();
+        if ("MANAGER".equalsIgnoreCase(role)) {
+            return UserResponseDto.BasicUserResponseDto.from(user);
+        } else if ("INSTRUCTOR".equalsIgnoreCase(role)) {
+            // Retrieve instructor info directly from InstructorRepository
+            Optional<Instructor> optInstructor = instructorRepository.findByUserIdx(user.getIdx());
+            if (optInstructor.isPresent()) {
+                return InstructorResponseDto.from(optInstructor.get());
+            } else {
+                return UserResponseDto.BasicUserResponseDto.from(user);
+            }
+        } else if ("STUDENT".equalsIgnoreCase(role)) {
+            // Retrieve student details from StudentRepository
+            Optional<StudentDetail> optStudent = studentRepository.findByStudent(user.getIdx());
+            if (optStudent.isPresent()) {
+                return StudentResponseDto.from(optStudent.get());
+            } else {
+                return UserResponseDto.BasicUserResponseDto.from(user);
+            }
+        } else {
+            return UserResponseDto.BasicUserResponseDto.from(user);
+        }
     }
 }
