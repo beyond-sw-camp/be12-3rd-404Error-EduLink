@@ -38,4 +38,6 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     Page<Board> findAllByBoardType(PageRequest of, int boardType);
 
     Page<Board> findAllByUserAndBoardType(User user, int boardType, PageRequest of);
+
+    Page<Board> findAllByUserIdxAndBoardType(Long userIdx, int boardType, PageRequest of);
 }
