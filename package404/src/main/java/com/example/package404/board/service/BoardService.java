@@ -85,7 +85,15 @@ public class BoardService {
 
         Page<Board> boardList = boardRepository.findAllByBoardType(PageRequest.of(page, size), boardType);
         if (boardList.isEmpty()) {
-            throw new BoardException(BoardResponseStatus.BOARD_NOT_FOUND); // 게시판에 게시글 없음
+            return BoardPageResponse.builder()
+                    .page(page)
+                    .size(size)
+                    .totalElements(0)
+                    .totalPages(0)
+                    .hasNext(false)
+                    .hasPrevious(false)
+                    .boardList(new ArrayList<>())
+                    .build();
         }
 
         return BoardPageResponse.from(boardList);
