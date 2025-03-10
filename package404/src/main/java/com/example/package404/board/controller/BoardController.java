@@ -53,12 +53,22 @@ public class BoardController {
     }
 
     @Operation(
-            summary = "게시글 작성자별 리스트보기",
-            description = "boardType 전달받아 로그인한 사용자의 게시물을 확인합니다."
+            summary = "로그인한 사용자의 게시판 리스트 보기",
+            description = "로그인 사용자 정보와 boardType 전달받아 로그인한 사용자의 게시물을 확인합니다."
     )
     @GetMapping("/listByUser/{boardType}")
-    public BaseResponse<Object> getUserBoardList(@AuthenticationPrincipal User loginUser, @PathVariable int boardType, int page, int size) {
-        BoardPageResponse response = boardService.getUserBoardList(loginUser, boardType, page, size);
+    public BaseResponse<Object> getByLoginUserBoardList(@AuthenticationPrincipal User loginUser, @PathVariable int boardType, int page, int size) {
+        BoardPageResponse response = boardService.getByLoginUserBoardList(loginUser, boardType, page, size);
+        return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
+    }
+
+    @Operation(
+            summary = "사용자별 게시판 리스트보기",
+            description = "특정 사용자 idx와 boardType 전달받아 해당 사용자의 게시물을 확인합니다."
+    )
+    @GetMapping("/listByUserIdx/{boardType}")
+    public BaseResponse<Object> getByUserBoardList(@PathVariable int boardType, Long userIdx, int page, int size) {
+        BoardPageResponse response = boardService.getByUserBoardList(boardType, userIdx, page, size);
         return baseResponseService.getSuccessResponse(response, CommonResponseStatus.SUCCESS);
     }
 

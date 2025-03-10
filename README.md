@@ -51,8 +51,16 @@
 ## ⭐ 접속 주소
 
 **서비스 접속 주소**<br>
-<a href="http://www.edulink.kro.kr">www.edulink.kro.kr</a>
+<a href="http://www.edulink.kro.kr">www.edulink.kro.kr</a><br>
+<details>
+<summary>테스트 계정</summary>
 
+- 학생 : student@test.com
+- 강사 : instructor@test.com
+- 매니저 : manager@test.com
+- 비밀번호 : qwer1234
+</details>
+<br><br>
 
 **프론트 프로젝트**<br>
 <a href="https://github.com/beyond-sw-camp/be12-2nd-404Error-EduLink">be12-2nd-404Error-EduLink</a>
