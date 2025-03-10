@@ -2,8 +2,11 @@ package com.example.package404.student.service;
 
 import com.example.package404.global.exception.StudentException;
 import com.example.package404.global.response.responseStatus.StudentResponseStatus;
+import com.example.package404.instructor.model.Course;
+import com.example.package404.instructor.service.CourseService;
 import com.example.package404.student.model.Dto.*;
 import com.example.package404.student.model.StudentDetail;
+import com.example.package404.student.repository.AttendanceRepository;
 import com.example.package404.student.repository.StudentRepository;
 import com.example.package404.user.model.Dto.UserResponseDto;
 import com.example.package404.user.model.User;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -25,6 +29,9 @@ import java.util.stream.Collectors;
 public class StudentService {
     private final StudentRepository studentRepository;
     private final UserRepository userRepository;
+    private final AttendanceRepository attendanceRepository;
+    private final CourseService courseService;
+
 
     public StudentDetailResponseDto register(StudentDetailRegisterDto dto, User user) {
         if (dto == null) {
@@ -156,7 +163,43 @@ public class StudentService {
     }
 
 
-    public void applyForLeave(AttendanceRequestDto attendanceRequestDto) {
+    public void applyForLeave(AttendanceRequestDto dto , Long userIdx) {
+        Optional<StudentDetail> studentIdx = studentRepository.findByStudent(userIdx);
+
+        attendanceRepository.save(dto.from(studentIdx.get()));
+    }
+
+    public StudentDetailResponseDto read1(Long idx) {
+        if (idx == null || idx < 0) {
+            throw new StudentException(StudentResponseStatus.INVALID_STUDENT_ID);
+        }
+
+        StudentDetail student = studentRepository.findByStudent(idx).orElseThrow();
+        if (student == null) {
+            throw new StudentException(StudentResponseStatus.STUDENT_NOT_FOUND);
+        }
+
+        return StudentDetailResponseDto.from(student);
+    }
+
+    public void applyBootcamp(Long courseIdx, User user) {
+        Optional<StudentDetail> result = studentRepository.findByUserIdx(user.getIdx());
+
+
+        result.filter(studentDetail -> studentDetail.getGeneration() != null)
+                .ifPresent(studentDetail -> {
+                    throw new StudentException(StudentResponseStatus.STUDENT_ALREADY_ENROLLED);
+                });
+
+
+
+        // 가입 신청하면 enabled 1 처리와 기수 등록되야함
+        Course course = courseService.getCourse(courseIdx);
+
+        StudentDetail studentDetail = result.get();
+
+        studentRepository.save(ApplyBootcampRequestDto.toEntity(studentDetail ,course));
+
 
     }
 }

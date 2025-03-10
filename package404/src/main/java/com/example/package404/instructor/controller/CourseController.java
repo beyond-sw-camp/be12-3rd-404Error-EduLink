@@ -4,6 +4,7 @@ import com.example.package404.global.response.BaseResponse;
 import com.example.package404.global.response.BaseResponseServiceImpl;
 import com.example.package404.global.response.responseStatus.InstructorResponseStatus;
 import com.example.package404.instructor.model.dto.req.CourseRegister;
+import com.example.package404.instructor.model.dto.res.BootcampListResponseDto;
 import com.example.package404.instructor.model.dto.res.CurriculumResponseDto;
 import com.example.package404.instructor.model.dto.res.InstructorCourseListResponseDto;
 import com.example.package404.instructor.model.dto.res.CourseResponseDto;
@@ -65,6 +66,23 @@ public class CourseController {
         CourseResponseDto response = courseService.read(generation);
         return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
     }
+
+
+
+    @GetMapping("/bootcamp")
+    public BaseResponse<List<BootcampListResponseDto>> getAllCourses() {
+
+        List<BootcampListResponseDto> rs =  courseService.getBootcampCourseAll();
+
+
+        // Todo 나중에 baseRes 확인
+        return baseResponseService.getSuccessResponse(rs , InstructorResponseStatus.SUCCESS);
+
+    }
+
+
+
+
 
 
 

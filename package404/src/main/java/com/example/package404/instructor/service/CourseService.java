@@ -7,6 +7,7 @@ import com.example.package404.instructor.model.Course;
 import com.example.package404.instructor.model.Curriculum;
 import com.example.package404.instructor.model.Instructor;
 import com.example.package404.instructor.model.dto.req.CourseRegister;
+import com.example.package404.instructor.model.dto.res.BootcampListResponseDto;
 import com.example.package404.instructor.model.dto.res.CourseResponseDto;
 import com.example.package404.instructor.model.dto.res.CurriculumResponseDto;
 import com.example.package404.instructor.model.dto.res.InstructorCourseListResponseDto;
@@ -94,9 +95,17 @@ public class CourseService {
 
 
     public Course getCourse(Long courseIdx) {
-        return courseRepository.findById(courseIdx).orElseThrow();
+        Course course = courseRepository.findById(courseIdx).orElseThrow();
+        if (course == null) {
+            throw new InstructorException(InstructorResponseStatus.COURSE_NOT_FOUND);
+        }
+        return course;
     }
 
 
+    public List<BootcampListResponseDto> getBootcampCourseAll() {
 
+        List<Course> rs = courseRepository.findAllCourses();
+        return rs.stream().map(BootcampListResponseDto::from).collect(Collectors.toList());
+    }
 }

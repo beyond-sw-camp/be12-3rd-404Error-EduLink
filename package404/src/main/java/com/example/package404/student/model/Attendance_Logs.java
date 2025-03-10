@@ -26,9 +26,10 @@ public class Attendance_Logs {
     private LocalDate startDate;  // 시작 날짜
     private LocalDate endDate;  // 종료 날짜
 
-    private String category;  // String 타입으로 변경 (휴가, 병가, 기타)
+    private String logType;  // String 타입으로 변경 (휴가, 병가, 기타)
 
     private String description;  // 사유
+    private LocalDate createdAt;
 
 
 

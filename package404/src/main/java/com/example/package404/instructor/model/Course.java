@@ -2,6 +2,7 @@ package com.example.package404.instructor.model;
 
 
 import com.example.package404.manager.model.Test;
+import com.example.package404.student.model.StudentDetail;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,11 @@ public class Course {
 
     private String name;
     private int generation;
+
+
+    @OneToMany(mappedBy = "course")
+    private List<StudentDetail> studentDetail;
+
 
     @OneToMany(mappedBy = "course")
     @JsonIgnore
