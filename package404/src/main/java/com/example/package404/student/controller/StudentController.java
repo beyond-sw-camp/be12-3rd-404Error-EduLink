@@ -60,12 +60,11 @@ public class StudentController {
 
     @PostMapping("/apply")
     public ResponseEntity<String> applyForLeave(
-//            @AuthenticationPrincipal User user,
+            @AuthenticationPrincipal User user,
             @RequestBody AttendanceRequestDto attendanceRequestDto) {
         try {
 
-            User user = User.builder().idx(5L).build();
-            studentService.applyForLeave(attendanceRequestDto);
+            studentService.applyForLeave(attendanceRequestDto , user.getIdx());
             return ResponseEntity.ok("휴가 신청이 완료되었습니다.");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -96,6 +95,21 @@ public class StudentController {
         attendanceUpdateService.enqueueAttendanceUpdate(user.getIdx(), action);
         return baseResponseService.getSuccessResponse("Attendance update enqueued", CommonResponseStatus.SUCCESS);
     }
+
+
+
+    // Todo 커리큘럼 신청 있어야함 get 으로 가져오고 post 로 보내야함
+    // 커리큘럼 신청하면
+
+    //
+    @GetMapping("/applyBootcamp/{courseIdx}")
+    public String applyBootcamp(@PathVariable Long courseIdx , @AuthenticationPrincipal User user) {
+        studentService.applyBootcamp(courseIdx,user);
+
+        return "가입됌";
+
+    }
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.example.package404.student.model;
 
+import com.example.package404.instructor.model.Course;
 import com.example.package404.user.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -25,12 +26,20 @@ public class StudentDetail {
     private Integer outing;
     private Integer vacationLeft;
 
+    private Integer generation;
+
+
+
     @OneToOne
     @JoinColumn(name="user_idx")
     @JsonIgnore
     private User user;
 
 
+
+    @ManyToOne
+    @JoinColumn(name = "course_idx")
+    private Course course;
 
     @OneToMany(mappedBy="studentdetail")
     private List<Attendance_Logs> attendance_logs;
