@@ -62,4 +62,9 @@ public class StudentDetail {
     public void updateVacationLeft() {
         this.vacationLeft -= 1;
     }
+    public void updataVacationLeft(int vacationLeft) {
+        this.vacationLeft -= vacationLeft;
+    }
+
+
 }

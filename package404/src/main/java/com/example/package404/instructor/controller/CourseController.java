@@ -52,8 +52,9 @@ public class CourseController {
     //Todo n+1
     @Operation(summary = "교과목 별 커리큘럼 조회", description = "특정 교과목에 대한 커리큘럼 정보를 조회하는 기능입니다.")
     @GetMapping("/curriculum")
-    public BaseResponse<List<CurriculumResponseDto>> getCurriculumBySubject(@RequestParam String subject) {
-        List<CurriculumResponseDto> response = courseService.getCurriculumBySubject(subject);
+    public BaseResponse<List<CurriculumResponseDto>> getCurriculumBySubject(@AuthenticationPrincipal User user , @RequestParam String subject) {
+
+        List<CurriculumResponseDto> response = courseService.getCurriculumBySubject(subject , user);
         return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
     }
 
@@ -61,9 +62,9 @@ public class CourseController {
 
     //Todo n+1
     @Operation(summary = "기수 별 코스 조회", description = "특정 기수에 대한 코스 정보를 조회하는 기능입니다.")
-    @GetMapping("/{generation}")
-    public BaseResponse<CourseResponseDto> read(@PathVariable int generation) {
-        CourseResponseDto response = courseService.read(generation);
+    @GetMapping("/bootcampinfo")
+    public BaseResponse<CourseResponseDto> read(@AuthenticationPrincipal User user) {
+        CourseResponseDto response = courseService.read(user);
         return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
     }
 
@@ -81,7 +82,13 @@ public class CourseController {
     }
 
 
+    @GetMapping("/applyBootcamp/{courseIdx}")
+    public String applyBootcamp(@PathVariable Long courseIdx , @AuthenticationPrincipal User user) {
+        courseService.applyBootcamp(courseIdx,user);
 
+        return "가입됌";
+
+    }
 
 
 

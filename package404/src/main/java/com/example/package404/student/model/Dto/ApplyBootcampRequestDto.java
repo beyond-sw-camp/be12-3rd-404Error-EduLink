@@ -3,7 +3,14 @@ package com.example.package404.student.model.Dto;
 import com.example.package404.instructor.model.Course;
 import com.example.package404.student.model.StudentDetail;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ApplyBootcampRequestDto {
 
     @Schema(description = "학생 고유 번호")
@@ -38,6 +45,7 @@ public class ApplyBootcampRequestDto {
                 .outing(studentDetail.getOuting())
                 .vacationLeft(studentDetail.getVacationLeft())
                 .generation(course.getGeneration())
+                .user(studentDetail.getUser())
                 .course(course)
                 .build();
 

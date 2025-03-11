@@ -12,10 +12,12 @@ import com.example.package404.user.model.Dto.UserResponseDto;
 import com.example.package404.user.model.User;
 import com.example.package404.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +32,6 @@ public class StudentService {
     private final StudentRepository studentRepository;
     private final UserRepository userRepository;
     private final AttendanceRepository attendanceRepository;
-    private final CourseService courseService;
 
 
     public StudentDetailResponseDto register(StudentDetailRegisterDto dto, User user) {
@@ -44,6 +45,24 @@ public class StudentService {
         } catch (Exception e) {
             throw new StudentException(StudentResponseStatus.STUDENT_ENROLLMENT_FAILED);
         }
+    }
+
+
+    public StudentDetailResponseDto getStudentDetail(Long userIdx) {
+        Optional<StudentDetail> rs = studentRepository.findByUserIdx(userIdx);
+        if (rs.isPresent()) {
+            return StudentDetailResponseDto.from(rs.get());
+        }
+        return null;
+
+    }
+    public StudentDetail  getStudent(Long userIdx) {
+        Optional<StudentDetail> rs = studentRepository.findByUserIdx(userIdx);
+        if (rs.isPresent()) {
+            return rs.get();
+        }
+        return null;
+
     }
 
     public StudentResponseDto read(Long idx) {
@@ -164,9 +183,22 @@ public class StudentService {
 
 
     public void applyForLeave(AttendanceRequestDto dto , Long userIdx) {
+        int vacationDays = (int) ChronoUnit.DAYS.between(dto.getStartDate(), dto.getEndDate()) + 1;
+
         Optional<StudentDetail> studentIdx = studentRepository.findByStudent(userIdx);
 
+        if (studentIdx.isEmpty() || !isVacationValid(studentIdx.get(), vacationDays)) {
+            throw new StudentException(StudentResponseStatus.huga_noting);
+        }
+
+        studentIdx.get().updataVacationLeft(vacationDays);
+
         attendanceRepository.save(dto.from(studentIdx.get()));
+    }
+
+    // 학생의 휴가 일수를 확인하는 메서드
+    private boolean isVacationValid(StudentDetail studentDetail, int vacationDays) {
+        return studentDetail.getVacationLeft() > vacationDays;
     }
 
     public StudentDetailResponseDto read1(Long idx) {
@@ -182,24 +214,5 @@ public class StudentService {
         return StudentDetailResponseDto.from(student);
     }
 
-    public void applyBootcamp(Long courseIdx, User user) {
-        Optional<StudentDetail> result = studentRepository.findByUserIdx(user.getIdx());
 
-
-        result.filter(studentDetail -> studentDetail.getGeneration() != null)
-                .ifPresent(studentDetail -> {
-                    throw new StudentException(StudentResponseStatus.STUDENT_ALREADY_ENROLLED);
-                });
-
-
-
-        // 가입 신청하면 enabled 1 처리와 기수 등록되야함
-        Course course = courseService.getCourse(courseIdx);
-
-        StudentDetail studentDetail = result.get();
-
-        studentRepository.save(ApplyBootcampRequestDto.toEntity(studentDetail ,course));
-
-
-    }
 }

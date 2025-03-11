@@ -2,7 +2,9 @@ package com.example.package404.instructor.service;
 
 
 import com.example.package404.global.exception.InstructorException;
+import com.example.package404.global.exception.StudentException;
 import com.example.package404.global.response.responseStatus.InstructorResponseStatus;
+import com.example.package404.global.response.responseStatus.StudentResponseStatus;
 import com.example.package404.instructor.model.Course;
 import com.example.package404.instructor.model.Curriculum;
 import com.example.package404.instructor.model.Instructor;
@@ -13,12 +15,19 @@ import com.example.package404.instructor.model.dto.res.CurriculumResponseDto;
 import com.example.package404.instructor.model.dto.res.InstructorCourseListResponseDto;
 import com.example.package404.instructor.repository.CourseRepository;
 import com.example.package404.instructor.repository.CurriculumRepository;
+import com.example.package404.student.model.Dto.ApplyBootcampRequestDto;
+import com.example.package404.student.model.Dto.StudentDetailResponseDto;
+import com.example.package404.student.model.StudentDetail;
+import com.example.package404.student.repository.StudentRepository;
+import com.example.package404.student.service.StudentService;
 import com.example.package404.user.model.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,13 +35,21 @@ import java.util.stream.Collectors;
 public class CourseService {
     private final CourseRepository courseRepository;
     private final InstructorService instructorService;
-    
+
+    @Lazy
+    private final StudentService studentService;
+
+
     private final CurriculumService curriculumService;
+
+    // 임시로 레포 추가 나중에 고쳐야함
+    private final StudentRepository studentRepository;
+
 
     // 기수등록
     @Transactional
     public void register(CourseRegister dto, User user) {
-        Instructor instructor = instructorService.getInstructorByUserIdx(user.getIdx());  // ✅ Instructor 객체 반환
+        Instructor instructor = instructorService.getInstructorByUserIdx(user.getIdx());
         Course course = dto.toEntity(instructor);
 
         try {
@@ -72,20 +89,14 @@ public class CourseService {
                 .collect(Collectors.toList());
     }
 
-    // 교과목별 조회
-    public List<CurriculumResponseDto> getCurriculumBySubject(String subject) {
-        List<Curriculum> result = curriculumService.getCurriculumBySubject(subject);
-        if (result.isEmpty()) {
-            throw new InstructorException(InstructorResponseStatus.CURRICULUM_NOT_FOUND);
-        }
 
-        return result.stream().map(CurriculumResponseDto::from).collect(Collectors.toList());
-    }
 
     // 코스 상세 조회
     @Transactional(readOnly = true)
-    public CourseResponseDto read(int generation) {
-        Course course = courseRepository.findAllWithCurriculumListByGeneration(generation);
+    public CourseResponseDto read(User user) {
+        StudentDetail studentDetail = studentService.getStudent(user.getIdx());
+
+        Course course = courseRepository.findAllWithCurriculumListByGeneration(studentDetail.getGeneration());
         if (course == null) {
             throw new InstructorException(InstructorResponseStatus.COURSE_NOT_FOUND);
         }
@@ -107,5 +118,46 @@ public class CourseService {
 
         List<Course> rs = courseRepository.findAllCourses();
         return rs.stream().map(BootcampListResponseDto::from).collect(Collectors.toList());
+    }
+
+
+    //교과목 별 조회
+    public List<CurriculumResponseDto> getCurriculumBySubject(String subject , User user ) {
+        // 유저 idx 로 학생 엔티티에서 조회해서 만약 기수가 없으면 커리큘럼 조회  x
+        // 조회해서 있으면 커리큘럼 반환
+
+        StudentDetail studentDetail = studentService.getStudent(user.getIdx());
+
+        if(studentDetail.getGeneration() !=null) {
+            List<Curriculum> result = curriculumService.getCurriculumBySubject(subject);
+            if (result.isEmpty()) {
+                throw new InstructorException(InstructorResponseStatus.CURRICULUM_NOT_FOUND);
+            }
+
+            return result.stream().map(CurriculumResponseDto::from).collect(Collectors.toList());
+        }
+        throw new InstructorException(InstructorResponseStatus.CURRICULUM_NOT_FOUND);
+    }
+
+
+    public void applyBootcamp(Long courseIdx, User user) {
+        Optional<StudentDetail> result = studentRepository.findByUserIdx(user.getIdx());
+
+
+        result.filter(studentDetail -> studentDetail.getGeneration() != null)
+                .ifPresent(studentDetail -> {
+                    throw new StudentException(StudentResponseStatus.STUDENT_ALREADY_ENROLLED);
+                });
+
+
+
+        // 가입 신청하면 enabled 1 처리와 기수 등록되야함
+        Course course = courseRepository.findById(courseIdx).orElseThrow();
+
+        StudentDetail studentDetail = result.get();
+
+        studentRepository.save(ApplyBootcampRequestDto.toEntity(studentDetail ,course));
+
+
     }
 }

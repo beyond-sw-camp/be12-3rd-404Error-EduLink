@@ -28,6 +28,8 @@ public class StudentDetailResponseDto {
     private Integer outing;
     @Schema(description = "학생 잔여 휴가 일수")
     private Integer vacationLeft;
+    @Schema(description = "유저 기수")
+    private Integer generation;
 
     public static StudentDetailResponseDto from(StudentDetail studentDetail) {
         return StudentDetailResponseDto.builder()
@@ -38,6 +40,7 @@ public class StudentDetailResponseDto {
                 .attendance(studentDetail.getAttendance())
                 .leaveEarly(studentDetail.getLeaveEarly())
                 .outing(studentDetail.getOuting())
+                .generation(studentDetail.getGeneration())
                 .vacationLeft(studentDetail.getVacationLeft())
                 .build();
     }

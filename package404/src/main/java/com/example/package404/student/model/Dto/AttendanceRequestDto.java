@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 
 @Getter
@@ -35,5 +36,9 @@ public class AttendanceRequestDto {
                 .createdAt(createdAt)
                 .build();
     }
+
+
+
+
 
 }
