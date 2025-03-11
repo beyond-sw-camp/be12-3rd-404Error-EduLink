@@ -16,7 +16,8 @@ public enum StudentResponseStatus implements BaseResponseStatus {
     STUDENT_PROGRESS_NOT_FOUND(false, 3008, "학생의 학습 진행 정보를 찾을 수 없습니다."),
     STUDENT_GRADE_NOT_FOUND(false, 3009, "학생의 성적 정보를 찾을 수 없습니다."),
     INVALID_PAGE(false, 3010, "잘못된 페이지 요청입니다. page, size를 확인해주세요."),
-    INVALID_UPDATE_ACTION(false, 3011, "잘못된 업데이트 요청입니다. action 값을 확인해주세요.");
+    huga_noting(false, 3011, "남은 휴가가 없습니다."),
+    INVALID_UPDATE_ACTION(false, 3012, "잘못된 업데이트 요청입니다. action 값을 확인해주세요.");
 
     private final boolean isSuccess;
     private final int code;

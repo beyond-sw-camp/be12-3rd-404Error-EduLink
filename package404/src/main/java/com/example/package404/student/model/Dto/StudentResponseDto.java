@@ -28,6 +28,8 @@ public class StudentResponseDto {
     @Schema(description = "유저 역할")
     private LocalDate birth;
 
+
+
     @Schema(description = "학생 상세 정보")
     StudentDetailResponseDto studentDetail;
 

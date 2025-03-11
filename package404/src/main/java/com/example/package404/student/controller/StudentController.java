@@ -102,13 +102,7 @@ public class StudentController {
     // 커리큘럼 신청하면
 
     //
-    @GetMapping("/applyBootcamp/{courseIdx}")
-    public String applyBootcamp(@PathVariable Long courseIdx , @AuthenticationPrincipal User user) {
-        studentService.applyBootcamp(courseIdx,user);
 
-        return "가입됌";
-
-    }
 
 
 
