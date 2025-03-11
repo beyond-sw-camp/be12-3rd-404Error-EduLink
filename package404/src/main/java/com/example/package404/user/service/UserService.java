@@ -168,6 +168,12 @@ public class UserService implements UserDetailsService {
             user.setBirth(dto.getBirth());
             updated = true;
         }
+
+        if(dto.getProfileUrl() != null) {
+            user.setProfileUrl(dto.getProfileUrl());
+            updated = true;
+        }
+
         if (dto.getPassword() != null && !dto.getPassword().isEmpty()) {
             String encoded = passwordEncoder.encode(dto.getPassword());
             user.setPassword(encoded);
