@@ -3,9 +3,13 @@ package com.example.package404.instructor.service;
 
 import com.example.package404.instructor.model.Course;
 import com.example.package404.instructor.model.Curriculum;
+import com.example.package404.instructor.model.Instructor;
 import com.example.package404.instructor.model.dto.req.CurriculumRegisterDto;
 import com.example.package404.instructor.model.dto.res.CurriculumResponseDto;
+import com.example.package404.instructor.repository.CourseRepository;
 import com.example.package404.instructor.repository.CurriculumRepository;
+import com.example.package404.instructor.repository.InstructorRepository;
+import com.example.package404.user.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -17,6 +21,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 
 public class CurriculumService {
+    private final CourseRepository courseRepository;
+    private final InstructorRepository instructorRepository;
     private final CurriculumRepository curriculumRepository;
 
 
@@ -31,5 +37,12 @@ public class CurriculumService {
             curriculumRepository.save(curriculumDto.toEntity(course));
         });
 
+    }
+
+    // 커리큘럼만 따로 등록 (강사 대시보드 기능)
+    public void register(User user, CurriculumRegisterDto dto) {
+        Instructor instructor = instructorRepository.findByUserIdx(user.getIdx()).orElseThrow();
+        Course course = courseRepository.findByInstructorIdx(instructor.getIdx()).orElseThrow();
+        curriculumRepository.save(dto.toEntity(course));
     }
 }
