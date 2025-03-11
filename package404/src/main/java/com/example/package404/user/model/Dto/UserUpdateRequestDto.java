@@ -13,6 +13,9 @@ public class UserUpdateRequestDto {
     @Schema(description = "새로운 비밀번호", example = "newPassword123")
     private String password;
 
+    @Schema(description = "새로운 이미지", example = "")
+    private String profileUrl;
+
     @Schema(description = "학생의 경우 새로운 주소", example = "서울시 강남구")
     private String address;
 
