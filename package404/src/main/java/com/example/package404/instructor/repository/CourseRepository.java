@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CourseRepository extends JpaRepository<Course, Long> {
     @Query("SELECT DISTINCT c FROM Course c " +
@@ -33,4 +34,5 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     Course findAllWithCurriculumListByGeneration(@Param("generation") int generation);
 
 
+    Optional<Course> findByInstructorIdx(Long idx);
 }
