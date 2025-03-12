@@ -58,6 +58,16 @@ public class CourseController {
         return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
     }
 
+    @Operation(summary = "교과목 별 커리큘럼 조회(복구 버전)", description = "특정 교과목에 대한 커리큘럼 정보를 조회하는 기능입니다.")
+    @GetMapping("/curriculumRe")
+    public  BaseResponse<List<CurriculumResponseDto>>getCurriculumBySubjectRe(@RequestParam String subject) {
+
+
+        List<CurriculumResponseDto> response = courseService.getCurriculumBySubjectRe(subject);
+
+        return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
+    }
+
 
 
     //Todo n+1
@@ -68,7 +78,12 @@ public class CourseController {
         return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
     }
 
-
+    @Operation(summary = "기수 입력 받아 코스 조회", description = "특정 기수 아이디를 받아 코스 정보를 조회하는 기능입니다.")
+    @GetMapping("/{generation}")
+    public BaseResponse<CourseResponseDto> readGenCourse(@PathVariable int generation) {
+        CourseResponseDto response = courseService.readGenCourse(generation);
+        return baseResponseService.getSuccessResponse(response, InstructorResponseStatus.SUCCESS);
+    }
 
     @GetMapping("/bootcamp")
     public BaseResponse<List<BootcampListResponseDto>> getAllCourses() {

@@ -104,6 +104,15 @@ public class CourseService {
         return CourseResponseDto.from(course);
     }
 
+    @Transactional(readOnly = true)
+    public CourseResponseDto readGenCourse(int generation) {
+        Course course = courseRepository.findAllWithCurriculumListByGeneration(generation);
+        if (course == null) {
+            throw new InstructorException(InstructorResponseStatus.COURSE_NOT_FOUND);
+        }
+
+        return CourseResponseDto.from(course);
+    }
 
     public Course getCourse(Long courseIdx) {
         Course course = courseRepository.findById(courseIdx).orElseThrow();
@@ -137,6 +146,15 @@ public class CourseService {
             return result.stream().map(CurriculumResponseDto::from).collect(Collectors.toList());
         }
         throw new InstructorException(InstructorResponseStatus.CURRICULUM_NOT_FOUND);
+    }
+
+    public List<CurriculumResponseDto> getCurriculumBySubjectRe(String subject) {
+        List<Curriculum> result = curriculumService.getCurriculumBySubject(subject);
+        if (result.isEmpty()) {
+            throw new InstructorException(InstructorResponseStatus.CURRICULUM_NOT_FOUND);
+        }
+
+        return result.stream().map(CurriculumResponseDto::from).collect(Collectors.toList());
     }
 
 
