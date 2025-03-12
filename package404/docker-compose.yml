@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  backend:
+    image: mstar228/edulink-backend:2.0 # image name
+    ports:
+      - 8080:8080
+    environment:
+      - MASTER_DB_URL=${MASTER_DB_URL}
+      - SLAVE_DB_URL=${SLAVE_DB_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - SECRET_KEY=${SECRET_KEY}
+      - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+      - AWS_SECRET_KEY=${AWS_SECRET_KEY}
+    command: ["java", "-jar", "/app.jar"]
+#    depends_on:
+#      - db
+#      - frontend
+#  db:
+#    image: mariadb:latest
+#    ports:
+#      - 306:3306
+#    volumes:
+#      - ./db:/var/lib/data
+#    environment:
+#      - MARIADB_ROOT_PASSWORD=qwer1234
+#      - MARIADB_DATABASE=web
