@@ -31,8 +31,8 @@ public class ManagerController {
     )
     @GetMapping("/list")
     public BaseResponse<ManagerPageResponse> managerList(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "5") int size) {
+            @RequestParam int page,
+            @RequestParam int size) {
         return managerService.getManagerList(page, size);
     }
 

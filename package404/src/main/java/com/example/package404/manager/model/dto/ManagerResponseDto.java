@@ -18,6 +18,10 @@ public class ManagerResponseDto {
     private String name;
     @Schema(description = "매니저 생년월일")
     private LocalDate birth;
+    //
+    @Schema(description = "매니저 권한 여부")
+    private boolean enabled;
+
 
     public static ManagerResponseDto of(User entity) {
         return ManagerResponseDto.builder()
@@ -25,6 +29,7 @@ public class ManagerResponseDto {
                 .email(entity.getEmail())
                 .name(entity.getName())
                 .birth(entity.getBirth())
+                .enabled(entity.isEnabled())
                 .build();
     }
 }
