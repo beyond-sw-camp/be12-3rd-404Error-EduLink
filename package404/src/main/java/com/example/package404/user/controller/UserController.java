@@ -69,7 +69,7 @@ public class UserController {
     @GetMapping("/info")
     public String getTestVersion() {
 
-        return "test2";
+        return "test1";
     }
 
 
