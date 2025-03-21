@@ -1,0 +1,120 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_CREDENTIALS_ID = 'docker-hub-credentials' // Docker Hub 자격 증명 ID
+        SSH_CREDENTIALS_ID = 'ssh-server-credentials' // 원격 서버 SSH 자격 증명 ID
+        DOCKER_IMAGE = "goodleaf96/edulink404backend:${env.BUILD_ID}" // Docker 이미지 이름
+        K8S_NAMESPACE = 'goodleaf' // Kubernetes 네임스페이스
+        K8S_DEPLOYMENT_BLUE = 'backend-deployment-blue' // Blue 배포 이름
+        K8S_DEPLOYMENT_GREEN = 'backend-deployment-green' // Green 배포 이름
+        K8S_SERVICE = 'backend-svc' // 서비스 이름
+        SSH_USER = 'test' // SSH 사용자 이름
+        SSH_HOST = '192.0.2.7' // SSH 호스트 주소
+    }
+    stages {
+        stage('Set Permissions') {
+            steps {
+                // gradlew에 실행 권한 부여
+                sh 'chmod +x "$WORKSPACE/gradlew"'
+            }
+        }
+        stage('Gradle Build') {
+            steps {
+                // Gradle을 사용하여 프로젝트 빌드
+                sh './gradlew bootJar'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                // Docker 이미지를 빌드하고 태그 지정
+                sh 'docker build --tag $DOCKER_IMAGE "$WORKSPACE"'
+            }
+        }
+        stage('Docker Login') {
+            steps {
+                // Docker Hub에 로그인
+                withCredentials([usernamePassword(credentialsId: env.DOCKER_CREDENTIALS_ID, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                }
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                // 빌드한 Docker 이미지를 Docker Hub에 푸시
+                sh 'docker push $DOCKER_IMAGE'
+            }
+        }
+        stage('Deployment') {
+            steps {
+                // SSH를 통해 원격 서버에 접속하여 배포 수행
+                sshagent(credentials: [env.SSH_CREDENTIALS_ID]) {
+                    script {
+                        def deploymentName = (env.BUILD_ID.toInteger() % 2 == 0) ? env.K8S_DEPLOYMENT_GREEN : env.K8S_DEPLOYMENT_BLUE
+                        def inactiveDeploymentName = (deploymentName == env.K8S_DEPLOYMENT_GREEN) ? env.K8S_DEPLOYMENT_BLUE : env.K8S_DEPLOYMENT_GREEN
+                        def deploymentColor = (deploymentName == env.K8S_DEPLOYMENT_GREEN) ? 'Green' : 'Blue'
+
+                        // 새로운 버전의 Deployment 적용
+                        sh """
+                        ssh -o StrictHostKeyChecking=no ${env.SSH_USER}@${env.SSH_HOST} kubectl apply -f - <<EOF
+                        apiVersion: apps/v1
+                        kind: Deployment
+                        metadata:
+                          namespace: ${env.K8S_NAMESPACE}
+                          name: ${deploymentName}
+                        spec:
+                          selector:
+                            matchLabels:
+                              type: backend
+                              deployment: ${deploymentColor.toLowerCase()}
+                          replicas: 2
+                          strategy:
+                            type: RollingUpdate
+                          minReadySeconds: 10
+                          template:
+                            metadata:
+                              labels:
+                                type: backend
+                                deployment: ${deploymentColor.toLowerCase()}
+                            spec:
+                              containers:
+                                - name: backend-${deploymentColor.toLowerCase()}
+                                  image: ${env.DOCKER_IMAGE}
+                              terminationGracePeriodSeconds: 0
+                        EOF
+                        """
+
+                        // 새로운 Deployment의 롤아웃 상태 확인 및 가용성 대기
+                        sh """
+                        ssh -o StrictHostKeyChecking=no ${env.SSH_USER}@${env.SSH_HOST} kubectl rollout status deployment/${deploymentName} -n ${env.K8S_NAMESPACE}
+                        ssh -o StrictHostKeyChecking=no ${env.SSH_USER}@${env.SSH_HOST} kubectl wait --for=condition=available deployment/${deploymentName} --timeout=120s -n ${env.K8S_NAMESPACE}
+                        """
+
+                        // 서비스의 selector를 새로운 Deployment로 변경
+                        sh """
+                        ssh -o StrictHostKeyChecking=no ${env.SSH_USER}@${env.SSH_HOST} kubectl apply -f - <<EOF
+                        apiVersion: v1
+                        kind: Service
+                        metadata:
+                          namespace: ${env.K8S_NAMESPACE}
+                          name: ${env.K8S_SERVICE}
+                        spec:
+                          selector:
+                            type: backend
+                            deployment: ${deploymentColor.toLowerCase()}
+                          ports:
+                          - port: 8080
+                            targetPort: 8080
+                          type: LoadBalancer
+                        EOF
+                        """
+
+                        // 이전 Deployment의 파드를 중지
+                        sh """
+                        ssh -o StrictHostKeyChecking=no ${env.SSH_USER}@${env.SSH_HOST} kubectl scale deployment ${inactiveDeploymentName} --replicas=0 -n ${env.K8S_NAMESPACE}
+                        """
+                    }
+                }
+            }
+        }
+    }
+}
