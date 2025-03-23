@@ -66,7 +66,7 @@ public class UserController {
     }
 
     @Operation(summary = "회원정보 조회", description = "로그인한 사용자의 정보를 조회합니다.")
-    @GetMapping("/info")
+    @GetMapping("/gettest")
     public String getTestVersion() {
 
         return "test1";
